@@ -38,8 +38,8 @@ CREATE TABLE Locations(
 CREATE TABLE Employees(
     employee_id INT PRIMARY KEY AUTO_INCREMENT,
     manager INT,
-    phone1 VARCHAR(10) UNIQUE,
-    phone2 VARCHAR(10) UNIQUE,
+    phone1 VARCHAR(12) UNIQUE,
+    phone2 VARCHAR(12) UNIQUE,
     first_name VARCHAR(15),
     last_name VARCHAR(15),
     CONSTRAINT fk_manager FOREIGN KEY (manager)
