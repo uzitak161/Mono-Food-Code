@@ -69,7 +69,7 @@ CREATE TABLE Items(
     item_name VARCHAR(20),
     item_price NUMERIC(4,2),
     ingredients VARCHAR(50),
-    availability BOOL
+    availability BOOLEAN
 );
 
 # Create Orders Table
@@ -78,7 +78,7 @@ CREATE TABLE Orders(
     location_id INT,
     customer_id INT,
     employee_id INT,
-    status INT,
+    status BOOLEAN,
     order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     restrictions VARCHAR(30),
     CONSTRAINT fk_cust_id FOREIGN KEY(customer_id)
