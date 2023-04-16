@@ -25,7 +25,7 @@ CREATE TABLE Customers(
 # Create Locations Table
 CREATE TABLE Locations(
     location_id INT PRIMARY KEY AUTO_INCREMENT,
-    city VARCHAR(10),
+    city VARCHAR(20),
     state VARCHAR(15),
     zip_code NUMERIC(5,0),
     phone VARCHAR(12) UNIQUE,
