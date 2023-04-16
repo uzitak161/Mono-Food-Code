@@ -8,7 +8,7 @@ USE restaurantdb;
 
 # Create Customer Table
 CREATE TABLE Customers(
-    customer_id INT PRIMARY KEY,
+    customer_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(15),
     last_name VARCHAR(15),
     phone1 NUMERIC(10,0) UNIQUE,
@@ -17,14 +17,14 @@ CREATE TABLE Customers(
     cvv TEXT,
     expiration_date DATE,
     street VARCHAR(20),
-    city VARCHAR(10),
-    state VARCHAR(15),
+    city VARCHAR(20),
+    state VARCHAR(20),
     zip_code NUMERIC(5,0)
 );
 
 # Create Locations Table
 CREATE TABLE Locations(
-    location_id INT PRIMARY KEY,
+    location_id INT PRIMARY KEY AUTO_INCREMENT,
     city VARCHAR(10),
     state VARCHAR(15),
     zip_code NUMERIC(5,0),
@@ -35,7 +35,7 @@ CREATE TABLE Locations(
 
 # Create Employees Table
 CREATE TABLE Employees(
-    employee_id INT PRIMARY KEY,
+    employee_id INT PRIMARY KEY AUTO_INCREMENT,
     manager INT,
     phone1 NUMERIC(10,0) UNIQUE,
     phone2 NUMERIC(10, 0) UNIQUE,
@@ -64,7 +64,7 @@ CREATE TABLE Employments(
 
 # Create Items Table
 CREATE TABLE Items(
-    item_id INT PRIMARY KEY,
+    item_id INT PRIMARY KEY AUTO_INCREMENT,
     item_name VARCHAR(20),
     item_price NUMERIC(4,2),
     ingredients VARCHAR(50),
@@ -73,7 +73,7 @@ CREATE TABLE Items(
 
 # Create Orders Table
 CREATE TABLE Orders(
-    order_id INT PRIMARY KEY,
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
     location_id INT,
     customer_id INT,
     employee_id INT,
@@ -93,7 +93,7 @@ CREATE TABLE Orders(
 
 # Create Reservation Table
 CREATE TABLE Reservations(
-    reservation_id INT PRIMARY KEY,
+    reservation_id INT PRIMARY KEY AUTO_INCREMENT,
     reservation_date DATETIME,
     party_size NUMERIC(2,0),
     customer_id INT,
@@ -128,7 +128,7 @@ CREATE TABLE OrderItems(
 
 # Create Feedback Table
 CREATE TABLE Feedback(
-    feedback_id INT,
+    feedback_id INT AUTO_INCREMENT,
     customer_id INT,
     comments VARCHAR(50),
     rating INT,
@@ -140,7 +140,7 @@ CREATE TABLE Feedback(
 
 # Create Schedule Table
 CREATE TABLE Shifts(
-    shift_id INT,
+    shift_id INT AUTO_INCREMENT,
     employee_id INT,
     shift_start DATETIME DEFAULT CURRENT_TIMESTAMP,
     shift_end DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -157,41 +157,41 @@ CREATE TABLE Shifts(
 
 # INSERTIONS INTO DDL STATEMENTS
 
-INSERT INTO Locations
-VALUES (1, 'Buffalo', 'New York', 14201, 7322005454, 6);
+INSERT INTO Locations (city, state, zip_code, phone, hours)
+VALUES ('Manhattan', 'New York', 14201, 7322005454, 6);
 
-INSERT INTO Locations
-VALUES (2, 'Belmar', 'New Jersey', 07723, 7325450167, 8);
-
-
-INSERT INTO Customers(customer_id, first_name, last_name, phone1, phone2, card_num, cvv, expiration_date, street, city, state, zip_code)
-VALUES (1, 'Uzay', 'Takil', 7325005000, 7325005005, 451242147543, '023', '2022-05-22', '123 Jellyfish Ave', 'Holmdel', 'New Jersey', 07733);
-
-INSERT INTO Customers
-VALUES (2, 'Lionel', 'Messi', 7325005001, 7325005003, 452245144543, '024', '2022-06-22', '92 Fontenot Drive', 'Lexington', 'Kentucky', 54467);
+INSERT INTO Locations (city, state, zip_code, phone, hours)
+VALUES ('Belmar', 'New Jersey', 07723, 7325450167, 8);
 
 
+INSERT INTO Customers(first_name, last_name, phone1, phone2, card_num, cvv, expiration_date, street, city, state, zip_code)
+VALUES ('Uzay', 'Takil', 7325005000, null, 451242147543, '023', '2022-05-22', '123 Jellyfish Ave', 'Holmdel', 'New Jersey', 07733);
 
-INSERT INTO Feedback (customer_id, comments, rating, feedback_id)
-VALUES (1, 'Food was terrible', 1, 9);
-
-INSERT INTO Feedback (customer_id, comments, rating, feedback_id)
-VALUES (2, 'Food was great!', 10, 10);
-
-
-INSERT INTO Reservations(reservation_id, reservation_date, party_size, customer_id, location_id)
-VALUES (5, '2022-05-22', 3, 1, 2);
-
-INSERT INTO Reservations(reservation_id, reservation_date, party_size, customer_id, location_id)
-VALUES (6, '2022-07-23', 2, 2, 1);
+INSERT INTO Customers(first_name, last_name, phone1, phone2, card_num, cvv, expiration_date, street, city, state, zip_code)
+VALUES ('Lionel', 'Messi', 7325005001, 7325005003, 452245144543, '024', '2022-06-22', '92 Fontenot Drive', 'Lexington', 'Kentucky', 54467);
 
 
 
-INSERT INTO Items(item_id, item_name, item_price, ingredients, availability)
-VALUES (1, 'Burger', 11, 'Meat, Bun, Cheese', 1);
+INSERT INTO Feedback (customer_id, comments, rating)
+VALUES (1, 'Food was terrible', 1);
 
-INSERT INTO Items(item_id, item_name, item_price, ingredients, availability)
-VALUES (2, 'Fries', 4.50, 'Potatoes', 0);
+INSERT INTO Feedback (customer_id, comments, rating)
+VALUES (2, 'Food was great!', 10);
+
+
+INSERT INTO Reservations(reservation_date, party_size, customer_id, location_id)
+VALUES ('2022-05-22', 3, 1, 2);
+
+INSERT INTO Reservations(reservation_date, party_size, customer_id, location_id)
+VALUES ('2022-07-23', 2, 2, 1);
+
+
+
+INSERT INTO Items(item_name, item_price, ingredients, availability)
+VALUES ('Burger', 11, 'Meat, Bun, Cheese', 1);
+
+INSERT INTO Items(item_name, item_price, ingredients, availability)
+VALUES ('Fries', 4.50, 'Potatoes', 0);
 
 
 
@@ -225,10 +225,9 @@ INSERT INTO OrderItems(item_id, order_id, item_quantity)
 VALUES (2, 906, 1);
 
 
+INSERT INTO Shifts(shift_start, shift_end, location_id)
+VALUES ('2023-4-07 12:00:00', '2023-4-07 17:00:00', 2);
 
-INSERT INTO Shifts(shift_id, shift_start, shift_end, location_id)
-VALUES (505, '2023-4-07 12:00:00', '2023-4-07 17:00:00', 2);
 
-
-INSERT INTO Shifts(shift_id, shift_start, shift_end, location_id)
-VALUES (506, '2023-4-07 12:00:00', '2023-4-07 17:00:00', 1);
+INSERT INTO Shifts(shift_start, shift_end, location_id)
+VALUES ('2023-4-07 12:00:00', '2023-4-07 17:00:00', 1);
