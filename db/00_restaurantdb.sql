@@ -16,7 +16,7 @@ CREATE TABLE Customers(
     card_num VARCHAR(15) UNIQUE,
     cvv TEXT,
     expiration_date DATE,
-    street VARCHAR(20),
+    street VARCHAR(50),
     city VARCHAR(20),
     state VARCHAR(20),
     zip_code NUMERIC(5,0)
