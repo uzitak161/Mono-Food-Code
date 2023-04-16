@@ -1,0 +1,41 @@
+order_id,location_id,customer_id,employee_id,status,order_date,restrictions
+1,2,29,18,false,9/25/2023,Dairy Free
+2,1,26,35,false,8/3/2023,No Eggs
+3,1,27,37,true,7/4/2023,Spicy
+4,3,16,15,false,12/30/2023,Very mild
+5,4,34,39,false,10/18/2023,No Eggs
+6,5,25,1,false,8/31/2023,Gluten Free
+7,4,32,11,true,9/22/2023,Spicy
+8,1,5,13,false,11/10/2023,Very mild
+9,3,29,30,false,2/14/2023,Gluten Free
+10,4,13,11,false,1/11/2023,Dairy Free
+11,2,30,23,true,1/4/2023,Dairy Free
+12,5,32,38,true,11/9/2023,Spicy
+13,3,3,33,true,1/22/2023,Spicy
+14,1,14,15,true,3/10/2023,Gluten Free
+15,1,33,15,true,11/30/2023,No nuts
+16,4,18,5,false,2/13/2023,No Eggs
+17,5,25,13,false,5/21/2023,Very mild
+18,2,24,18,false,3/9/2023,N/A
+19,5,22,25,true,12/20/2023,Dairy Free
+20,1,27,3,true,5/21/2023,Dairy Free
+21,2,12,6,true,12/22/2023,N/A
+22,1,2,9,true,2/13/2023,Gluten Free
+23,2,35,39,false,12/20/2023,No nuts
+24,3,6,4,true,10/26/2023,Spicy
+25,3,38,11,true,7/3/2023,N/A
+26,1,13,4,false,6/19/2023,N/A
+27,3,36,2,true,10/17/2023,N/A
+28,4,31,25,false,2/21/2023,Spicy
+29,1,32,17,false,10/2/2023,Very mild
+30,3,36,3,true,3/1/2023,N/A
+31,4,19,28,false,6/16/2023,Very mild
+32,1,6,34,false,8/3/2023,No nuts
+33,1,11,4,true,6/10/2023,Spicy
+34,4,3,3,false,4/8/2023,No nuts
+35,2,21,3,true,1/3/2023,Very mild
+36,4,38,16,false,10/17/2023,No nuts
+37,2,11,30,false,4/5/2023,No nuts
+38,4,39,34,false,5/9/2023,Dairy Free
+39,2,4,29,false,1/24/2023,Dairy Free
+40,4,38,40,true,8/24/2023,N/A
