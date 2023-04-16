@@ -1,0 +1,9 @@
+item_id,item_name,item_price,ingredients,availability
+1,Grilled Cheese,$17.59 ,"bread, cheese, butter",TRUE
+2,Caesar Salad,$7.27 ,"lettuce, croutons, cheese, dressing",TRUE
+3,Chicken Quesadilla,$16.61 ,"chicken, tortilla, cheese",TRUE
+4,French Fries,$8.75 ,potato,TRUE
+5,Spagetti,$7.54 ,"pasta, tomato sauce, cheese",TRUE
+6,Cheese Pizza,$9.95 ,"cheese, dough, tomato sauce",TRUE
+7,Tomato Soup,$16.41 ,"tomato, heavy cream",FALSE
+8,Hamburger,$12.87 ,"bread, tomato, cheese, lettuce, beef, onion",TRUE
