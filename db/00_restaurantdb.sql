@@ -11,8 +11,8 @@ CREATE TABLE Customers(
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(15),
     last_name VARCHAR(15),
-    phone1 NUMERIC(10,0) UNIQUE,
-    phone2 NUMERIC(10,0) UNIQUE,
+    phone1 VARCHAR(10) UNIQUE,
+    phone2 VARCHAR(10) UNIQUE,
     card_num NUMERIC(16,0) UNIQUE,
     cvv TEXT,
     expiration_date DATE,
@@ -28,7 +28,7 @@ CREATE TABLE Locations(
     city VARCHAR(10),
     state VARCHAR(15),
     zip_code NUMERIC(5,0),
-    phone NUMERIC(10,0) UNIQUE,
+    phone VARCHAR(10) UNIQUE,
     opening TIME,
     closing TIME
 );
@@ -38,8 +38,8 @@ CREATE TABLE Locations(
 CREATE TABLE Employees(
     employee_id INT PRIMARY KEY AUTO_INCREMENT,
     manager INT,
-    phone1 NUMERIC(10,0) UNIQUE,
-    phone2 NUMERIC(10, 0) UNIQUE,
+    phone1 VARCHAR(10) UNIQUE,
+    phone2 VARCHAR(10) UNIQUE,
     first_name VARCHAR(15),
     last_name VARCHAR(15),
     CONSTRAINT fk_manager FOREIGN KEY (manager)
