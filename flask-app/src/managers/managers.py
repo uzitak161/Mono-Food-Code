@@ -101,23 +101,25 @@ def delete_employee():
     db.get_db().commit()
     return "Success"
 
+# This adds the employee to the DB, the employee is not associated with a location or 'Employment' until they are added via a schedule. So while they may be added to
+# the employee table they are not considered hired. 
 @managers.route('/employee', methods=['POST'])
 def create_employee():
 
     req_data = request.get_json()
-    current_app.logger.info(req_data)
 
 
-    # TODO: take in correct values for employee info
+    manager_id = req_data['manager_id']
+    phone1 = req_data['phone1']
+    phone2 = req_data['phone2']
+    first_name = req_data['first_name']
+    last_name = req_data['last_name']
 
-    prod_name = req_data['product_name']
-    prod_description = req_data['product_description']
-    prod_price = req_data['product_listprice']
-
-    insert_stmt = 'INSERT INTO Employees (product_name, description, list_price) VALUES ("'
-    insert_stmt += prod_name + '", "' + prod_description + '", ' + str(prod_price) + ')'
-
-    current_app.logger.info(insert_stmt)
+    insert_stmt = """
+    INSERT INTO Employees(manager, phone1, phone2, first_name, last_name)
+    VALUES ({manager}, {p1}, {p2}, '{fName}', '{lName}');
+    """
+    insert_stmt = insert_stmt.format(manager = manager_id, p1 = phone1, p2 = phone2, fName = first_name, lName = last_name)
 
     #execute the query
     cursor = db.get_db().cursor()
