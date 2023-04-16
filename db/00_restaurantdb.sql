@@ -53,7 +53,7 @@ CREATE TABLE Employments(
     location_id INT,
     hire_date DATE,
     fire_date DATE,
-    wage INT,
+    wage NUMERIC(4,2),
     PRIMARY KEY (employee_id, location_id),
     CONSTRAINT fk_emp_id2 FOREIGN KEY (employee_id)
         REFERENCES Employees(employee_id)
@@ -247,57 +247,56 @@ INSERT INTO Employees(manager,phone1,phone2,first_name,last_name) VALUES (3,'502
 INSERT INTO Employees(manager,phone1,phone2,first_name,last_name) VALUES (2,'549-757-1299','979-115-5978','Christoffer','McDuffie');
 
 # EMPLOYMENTS TABLE - Right now, every employee is eventually getting fired.
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (19,3,'2023-02-14','2023-07-27','$24.59');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (35,4,'2023-01-15','2023-06-06','$19.07');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (5,5,'2023-01-25','2023-07-17','$20.21');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (26,3,'2023-01-04','2023-06-28','$24.18');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (31,5,'2023-05-06','2023-06-05','$23.82');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (1,4,'2023-05-17','2023-06-22','$24.14');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (37,3,'2023-04-18','2023-06-10','$22.36');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (14,2,'2023-02-27','2023-07-18','$19.50');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (34,1,'2023-01-10','2023-07-22','$24.43');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (27,3,'2023-04-05','2023-07-29','$20.13');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (4,3,'2023-01-14','2023-07-22','$19.62');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (20,1,'2023-03-16','2023-06-11','$22.05');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (20,5,'2023-01-22','2023-07-10','$17.67');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (38,2,'2023-02-19','2023-06-20','$19.24');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (8,3,'2023-03-03','2023-07-17','$17.57');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (36,4,'2023-01-29','2023-07-02','$23.38');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (21,4,'2023-05-08','2023-07-04','$23.44');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (22,2,'2023-03-22','2023-06-02','$17.24');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (36,5,'2023-03-18','2023-06-25','$20.16');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (35,2,'2023-01-16','2023-06-23','$16.64');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (20,4,'2023-04-12','2023-06-07','$23.76');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (10,5,'2023-03-08','2023-06-07','$18.40');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (9,2,'2023-01-26','2023-07-07','$24.11');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (27,1,'2023-01-18','2023-07-10','$15.16');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (37,3,'2023-02-18','2023-07-13','$17.68');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (30,1,'2023-02-20','2023-06-30','$17.75');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (20,1,'2023-02-28','2023-06-16','$22.51');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (23,5,'2023-05-24','2023-07-01','$19.17');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (37,2,'2023-04-26','2023-07-27','$18.22');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (22,3,'2023-05-11','2023-06-23','$15.21');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (11,3,'2023-03-17','2023-06-12','$18.28');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (39,2,'2023-02-22','2023-06-18','$23.62');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (31,2,'2023-04-11','2023-07-22','$15.61');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (3,5,'2023-04-25','2023-06-15','$23.44');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (22,3,'2023-01-31','2023-07-04','$23.32');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (5,1,'2023-01-30','2023-06-08','$21.28');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (13,1,'2023-04-02','2023-06-13','$22.97');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (12,2,'2023-03-02','2023-06-19','$17.11');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (20,4,'2023-05-29','2023-06-06','$18.02');
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (12,3,'2023-02-16','2023-07-02','$15.43');
-
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (4,2,'1/5/2023','6/24/2023',16.47);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (21,4,'5/10/2023','6/20/2023',22.12);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (11,3,'1/11/2023','6/21/2023',16.68);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (27,2,'3/1/2023','7/17/2023',16.29);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (25,2,'3/12/2023','6/9/2023',20.79);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (27,4,'5/19/2023','6/3/2023',16.9);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (34,3,'4/23/2023','6/16/2023',15.15);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (29,5,'2/16/2023','7/3/2023',16.61);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (14,4,'3/26/2023','6/4/2023',24.2);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (26,2,'3/23/2023','6/1/2023',21.59);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (5,5,'5/14/2023','7/12/2023',23.06);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (8,3,'3/5/2023','7/12/2023',24.22);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (14,4,'2/20/2023','7/30/2023',19.53);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (33,5,'4/5/2023','6/20/2023',16.48);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (32,2,'4/12/2023','6/26/2023',21.24);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (21,5,'5/17/2023','7/18/2023',16.92);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (19,1,'4/12/2023','7/18/2023',20.64);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (34,5,'1/23/2023','7/21/2023',22.85);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (40,4,'2/28/2023','7/18/2023',19.99);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (37,3,'4/16/2023','7/27/2023',15.06);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (35,4,'5/30/2023','6/14/2023',24.4);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (3,3,'4/11/2023','7/24/2023',19.81);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (30,5,'3/16/2023','6/30/2023',21.14);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (40,2,'4/9/2023','7/8/2023',21.39);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (7,5,'3/8/2023','6/26/2023',17.31);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (32,4,'4/8/2023','6/18/2023',15.53);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (7,3,'3/5/2023','6/27/2023',18.88);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (11,5,'5/15/2023','7/30/2023',15.03);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (21,2,'3/6/2023','7/25/2023',22.0);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (19,5,'1/6/2023','6/15/2023',17.91);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (16,4,'4/16/2023','7/11/2023',20.78);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (29,3,'1/9/2023','6/13/2023',24.81);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (1,3,'2/23/2023','6/25/2023',21.77);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (34,4,'3/6/2023','7/20/2023',15.14);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (26,2,'1/13/2023','6/3/2023',22.75);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (5,5,'5/27/2023','6/29/2023',16.43);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (35,3,'1/29/2023','6/23/2023',15.84);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (16,4,'2/16/2023','7/29/2023',19.09);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (14,3,'4/30/2023','7/19/2023',15.1);
+INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (37,2,'4/16/2023','6/27/2023',22.38);
 
 # ITEMS TABLE
-INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Grilled Cheese','$17.59','bread, cheese, butter','TRUE');
-INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Caesar Salad','$7.27','lettuce, croutons, cheese, dressing','TRUE');
-INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Chicken Quesadilla','$16.61','chicken, tortilla, cheese','TRUE');
-INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('French Fries','$8.75','potato','TRUE');
-INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Spaghetti','$7.54','pasta, tomato sauce, cheese','TRUE');
-INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Cheese Pizza','$9.95','cheese, dough, tomato sauce','TRUE');
-INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Tomato Soup','$16.41','tomato, heavy cream','FALSE');
-INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Hamburger','$12.87','bread, tomato, cheese, lettuce, beef, onion','TRUE');
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (1,'Grilled Cheese',6.47,'Pizza Dough','true');
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (2,'Caesar Salad',16.0,'Ground Beef','true');
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (3,'Chicken Quesadilla',14.08,'Dressing','true');
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (4,'French Fries',18.21,'Ground Beef','true');
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (5,'Spagetti',7.69,'Tomato Sauce','true');
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (6,'Cheese Pizza',14.35,'Bell Peppers','true');
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (7,'Tomato Soup',14.67,'Croutons','false');
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (8,'Hamburger',9.05,'Croutons','true');
 
 # ORDERS TABLE
 INSERT INTO Orders(location_id,customer_id,employee_id,status,order_date,restrictions) VALUES (2,29,18,'FALSE','2023-09-25','Dairy Free');
