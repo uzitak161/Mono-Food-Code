@@ -16,7 +16,7 @@ CREATE TABLE Customers(
     card_num NUMERIC(16,0) UNIQUE,
     cvv TEXT,
     expiration_date DATE,
-    street VARCHAR(20)
+    street VARCHAR(20),
     city VARCHAR(10),
     state VARCHAR(15),
     zip_code NUMERIC(5,0)
@@ -164,8 +164,8 @@ INSERT INTO Locations
 VALUES (2, 'Belmar', 'New Jersey', 07723, 7325450167, 8);
 
 
-INSERT INTO Customers(customer_id, first_name, last_name, phone1, phone2, card_num, cvv, expiration_date, city, state, zip_code)
-VALUES (1, 'Uzay', 'Takil', 7325005000, null, 451242147543, '023', '2022-05-22', '123 Jellyfish Ave', 'Holmdel', 'New Jersey', 07733);
+INSERT INTO Customers(customer_id, first_name, last_name, phone1, phone2, card_num, cvv, expiration_date, street, city, state, zip_code)
+VALUES (1, 'Uzay', 'Takil', 7325005000, 7325005005, 451242147543, '023', '2022-05-22', '123 Jellyfish Ave', 'Holmdel', 'New Jersey', 07733);
 
 INSERT INTO Customers
 VALUES (2, 'Lionel', 'Messi', 7325005001, 7325005003, 452245144543, '024', '2022-06-22', '92 Fontenot Drive', 'Lexington', 'Kentucky', 54467);
