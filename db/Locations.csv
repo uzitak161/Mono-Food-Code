@@ -1,0 +1,6 @@
+location_id,city,state,zip_code,phone,opening,closing
+1,Boston,MA,02216,617-973-7699,11:00 AM,10:00 PM
+2,Boston,MA,02203,617-731-9892,11:00 AM,10:00 PM
+3,Boston,MA,02216,617-430-4335,11:00 AM,10:00 PM
+4,Springfield,MA,01129,413-361-5631,11:00 AM,10:00 PM
+5,Springfield,MA,01105,413-788-9759,11:00 AM,10:00 PM
