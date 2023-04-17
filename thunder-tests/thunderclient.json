@@ -2,20 +2,121 @@
   {
     "_id": "4aecc545-9303-448c-a4c8-9615935ce1be",
     "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
-    "containerId": "",
-    "name": "localhost:8001/c/",
+    "containerId": "fcf082ff-df23-496d-98a0-6eb01a715936",
+    "name": "success",
     "url": "localhost:8001/c/",
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-04-16T22:00:44.108Z",
-    "modified": "2023-04-16T22:00:44.108Z",
+    "modified": "2023-04-17T22:59:10.132Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n\"first\": \"John\",\n\"last\": \"Doe\",\n\"phone1\": 7016931142,\n\"card\": 1234123412341234,\n\"cvv\": \"123\",\n\"expiration\": \"2022-05-22\",\n\"street\": \"123 blah road\",\n\"city\": \"Boston\",\n\"state\": \"MA\",\n\"zip_code\": 12345\n}",
+      "raw": "{\n  \"first\": \"John\",\n  \"last\": \"Doe\",\n  \"phone1\": 7116931142,\n  \"phone2\": 1728492017,\n  \"card\": 1234120412341234,\n  \"cvv\": \"123\",\n  \"expiration\": \"2022-05-22\",\n  \"street\": \"123 Blah Rd\",\n  \"city\": \"Boston\",\n  \"state\": \"MA\",\n  \"zip_code\": 12345\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "df11e773-c79a-46d6-9fc4-3d5a891056e9",
+    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
+    "containerId": "4041db7e-0c17-42d6-b40e-1d41f2b4370e",
+    "name": "localhost:8001/c/feedback/1",
+    "url": "localhost:8001/c/feedback/1",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-04-17T21:44:45.412Z",
+    "modified": "2023-04-17T23:06:20.278Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"comments\": \"this place sucks!\",\n  \"rating\": 1\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "contains",
+        "value": "\"successfully\""
+      }
+    ]
+  },
+  {
+    "_id": "1009e458-a2bb-44ba-9750-248e9b899dc2",
+    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
+    "containerId": "bb479ade-2a64-4dd1-9706-d17235861871",
+    "name": "localhost:8001/c/reservations/1",
+    "url": "localhost:8001/c/reservations/1",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-04-17T22:09:51.561Z",
+    "modified": "2023-04-17T22:57:06.742Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"datetime\": \"2023-05-28 00::00\",\n  \"party_size\": 5,\n  \"location_id\": 1\n}",
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "af374667-d121-4424-b270-e90a5eeb0229",
+    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
+    "containerId": "1a94b2fa-3b45-4624-8323-b9daa50d24dc",
+    "name": "localhost:8001/c/items",
+    "url": "localhost:8001/c/items",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-17T22:41:50.784Z",
+    "modified": "2023-04-17T22:57:27.361Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "1655394b-ab6d-4d73-81ed-0efb8ba270d8",
+    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
+    "containerId": "9ef59c47-6673-41cb-b53b-01d4c5b049b1",
+    "name": "localhost:8001/c/locations/1",
+    "url": "localhost:8001/c/locations/1",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-17T22:49:04.293Z",
+    "modified": "2023-04-17T22:57:17.715Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "39cb7920-f14a-4450-9d0d-ad4ca866fdf5",
+    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
+    "containerId": "fcf082ff-df23-496d-98a0-6eb01a715936",
+    "name": "empty body",
+    "url": "localhost:8001/c/",
+    "method": "POST",
+    "sortNum": 70000,
+    "created": "2023-04-17T23:03:53.559Z",
+    "modified": "2023-04-17T23:04:36.648Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "400"
+      }
+    ]
   }
 ]
