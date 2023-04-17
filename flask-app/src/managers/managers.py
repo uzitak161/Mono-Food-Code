@@ -65,3 +65,100 @@ def get_revenue_for_location(locationID):
     the_response.mimetype = 'application/json'
     return the_response
 
+# This is not a hard deletion, we do not want to completely get rid of employee work history so we simply update the fire_date column in the Employments table
+@managers.route('/employee', methods=['DELETE'])
+def delete_employee():
+
+    req_data = request.get_json()
+
+    employee_id = req_data['employee_id']
+    location_id = req_data['location_id']
+    fire_date = req_data.get('fire_date', None)
+
+
+    query = None
+
+    if (not fire_date):
+        query = """
+            UPDATE Employments
+            SET fire_date = DATE_FORMAT(fire_date , CURRENT_DATE)
+            where location_id = {locID} and employee_id = {employeeID};
+            """
+        query = query.format(locID = location_id, employeeID = employee_id)
+    else: 
+        query = """
+            UPDATE Employments
+            SET fire_date = DATE_FORMAT(fire_date ,'{date}')
+            where location_id = {locID} and employee_id = {employeeID};
+            """
+        query = query.format(date = fire_date, locID = location_id, employeeID = employee_id)
+        
+    
+
+    #execute the query
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+    return "Success"
+
+# This adds the employee to the DB, the employee is not associated with a location or 'Employment' until they are added via a schedule. So while they may be added to
+# the employee table they are not considered hired. 
+@managers.route('/employee', methods=['POST'])
+def create_employee():
+
+    req_data = request.get_json()
+
+
+    manager_id = req_data['manager_id']
+    phone1 = req_data['phone1']
+    phone2 = req_data['phone2']
+    first_name = req_data['first_name']
+    last_name = req_data['last_name']
+
+    insert_stmt = """
+    INSERT INTO Employees(manager, phone1, phone2, first_name, last_name)
+    VALUES ({manager}, {p1}, {p2}, '{fName}', '{lName}');
+    """
+    insert_stmt = insert_stmt.format(manager = manager_id, p1 = phone1, p2 = phone2, fName = first_name, lName = last_name)
+
+    #execute the query
+    cursor = db.get_db().cursor()
+    cursor.execute(insert_stmt)
+    db.get_db().commit()
+    return "Success"
+
+# Changed route from /locations<string:locationId>/schedule/<string:employeeId> to /schedule
+
+
+@managers.route('/schedule', methods=['PUT'])
+def update_schedule():
+    data = request.get_json()
+
+    if not data or 'start_time' not in data or 'end_time' not in data \
+        or 'location_id' not in data or 'employee_id' not in data:
+        return make_response(jsonify({'error': 'Invalid request body'}), 400)
+    
+    start_time = data['start_time']
+    end_time = data['end_time']
+    locationID = data['location_id']
+    employeeID = data['employee_id']
+
+    query = """
+    INSERT INTO Shifts (employee_id, shift_start, shift_end, location_id)
+    VALUES ({employeeId}, '{startTime}', '{endTime}', {locID});
+    """.format(employeeId = employeeID, startTime = start_time, endTime = end_time, locID = locationID)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    deletion_query = """
+    DELETE FROM Shifts where
+                       employee_id = {employeeId} and location_id = {locID} and shift_start > '{startTime}' and shift_end < '{endTime}';
+    """.format(employeeId = employeeID, startTime = start_time, endTime = end_time, locID = locationID)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(deletion_query)
+    db.get_db().commit()
+
+    return "Added Shift"
