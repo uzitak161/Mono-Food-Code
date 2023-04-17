@@ -184,17 +184,3 @@ def update_menu_item(itemID):
     db.get_db().commit()
 
     return make_response(jsonify({'message': 'Item updated'}), 200)
-
-
-@managers.route('/items/<string:itemID>', methods=['DELETE'])
-def delete_menu_item(itemID):
-    query = """
-    DELETE FROM Items
-    WHERE item_id = {ID}
-    """.format(ID=itemID)
-
-    cursor = db.get_db().cursor()
-    cursor.execute(query)
-    db.get_db().commit()
-
-    return make_response(jsonify({'message': 'Item deleted'}), 200)

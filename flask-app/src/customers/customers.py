@@ -63,8 +63,8 @@ def get_profile(customerID):
 def update_profile(customerID):
     data = request.json
 
-    first = data['first']
-    last = data['last']
+    first = data['first_name']
+    last = data['last_name']
     phone1 = data['phone1']
     try:
         phone2 = data['phone2']
@@ -79,9 +79,10 @@ def update_profile(customerID):
     zip_code = data['zip_code']
     
     query = f'''
-    update customers
-    set first_name = {first}, last_name = {last}, phone1 = {phone1}, phone2 = {phone2}, card_num = {card}, cvv = {cvv}, expiration_date = {expiration}, street = {street}, city = {city}, state = {state}, zip_code = {zip_code}
-    where customer_id = {customerID}
+    update Customers
+    set first_name = '{first}', last_name = '{last}', phone1 = '{phone1}', phone2 = '{phone2}', card_num = '{card}', cvv = '{cvv}',\
+     expiration_date = '{expiration}', street = '{street}', city = '{city}', state = '{state}', zip_code = '{zip_code}'
+    where customer_id = '{customerID}'
     '''
 
     cursor = db.get_db().cursor()
