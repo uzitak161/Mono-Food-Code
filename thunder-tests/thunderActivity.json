@@ -17,5 +17,122 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "5f57f699-51c4-4350-900c-e209e43cd167",
+    "colId": "history",
+    "containerId": "",
+    "name": "m/get_customers",
+    "url": "localhost:8001/m/customers",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-17T19:45:49.236Z",
+    "modified": "2023-04-17T19:47:20.145Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "contains",
+        "value": "application/json"
+      },
+      {
+        "type": "json-query",
+        "custom": "json[0].customer_id",
+        "action": "equal",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "_id": "c9f4bc4d-f566-4de0-9c37-b355278c9a08",
+    "colId": "history",
+    "containerId": "",
+    "name": "m/get_orders_for_location",
+    "url": "localhost:8001/m/orders/location/1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-17T19:55:50.950Z",
+    "modified": "2023-04-17T19:56:38.107Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "contains",
+        "value": "application/json"
+      },
+      {
+        "type": "json-query",
+        "custom": "json[0].order_id",
+        "action": "equal",
+        "value": "2"
+      }
+    ]
+  },
+  {
+    "_id": "eade401d-8561-42dc-92fc-5af81a019ed7",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8001/m/orders/employee/1",
+    "url": "localhost:8001/m/orders/employee/1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-17T19:57:18.343Z",
+    "modified": "2023-04-17T19:58:13.501Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "contains",
+        "value": "application/json"
+      },
+      {
+        "type": "json-query",
+        "custom": "json[0].order_id",
+        "action": "equal",
+        "value": "6"
+      }
+    ]
   }
 ]
