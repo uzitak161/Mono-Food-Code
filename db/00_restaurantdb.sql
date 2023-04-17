@@ -259,7 +259,6 @@ INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES
 INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (26,2,'2023-03-23','2023-06-01',21.59);
 INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (5,5,'2023-05-14','2023-07-12',23.06);
 INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (8,3,'2023-03-05','2023-07-12',24.22);
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (14,4,'2023-02-20','2023-07-30',19.53);
 INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (33,5,'2023-04-05','2023-06-20',16.48);
 INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (32,2,'2023-04-12','2023-06-26',21.24);
 INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (21,5,'2023-05-17','2023-07-18',16.92);
@@ -281,10 +280,7 @@ INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES
 INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (29,3,'2023-01-09','2023-06-13',24.81);
 INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (1,3,'2023-02-23','2023-06-25',21.77);
 INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (34,4,'2023-03-06','2023-07-20',15.14);
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (26,2,'2023-01-13','2023-06-03',22.75);
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (5,5,'2023-05-27','2023-06-29',16.43);
 INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (35,3,'2023-01-29','2023-06-23',15.84);
-INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (16,4,'2023-02-16','2023-07-29',19.09);
 INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (14,3,'2023-04-30','2023-07-19',15.1);
 INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES (37,2,'2023-04-16','2023-06-27',22.38);
 
@@ -401,7 +397,6 @@ INSERT INTO OrderItems(item_id,order_id,item_quantity) VALUES (7,10,1);
 INSERT INTO OrderItems(item_id,order_id,item_quantity) VALUES (4,33,1);
 INSERT INTO OrderItems(item_id,order_id,item_quantity) VALUES (5,12,1);
 INSERT INTO OrderItems(item_id,order_id,item_quantity) VALUES (1,37,1);
-INSERT INTO OrderItems(item_id,order_id,item_quantity) VALUES (8,36,2);
 INSERT INTO OrderItems(item_id,order_id,item_quantity) VALUES (2,3,2);
 INSERT INTO OrderItems(item_id,order_id,item_quantity) VALUES (6,7,1);
 INSERT INTO OrderItems(item_id,order_id,item_quantity) VALUES (6,25,1);
