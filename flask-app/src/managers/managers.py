@@ -46,6 +46,9 @@ def get_revenue_for_employee(employeeID):
 
 @managers.route('/revenue/location/<string:locationID>', methods=['GET'])
 def get_revenue_for_location(locationID):
+
+
+
     query = """
     select SUM(OrderSum) as revenue from (select SUM(item_quantity * item_price) as OrderSum from Orders join OrderItems on Orders.order_id = OrderItems.order_id join Items I on OrderItems.item_id = I.item_id
     where location_id = {ID}
@@ -112,23 +115,38 @@ def create_employee():
     req_data = request.get_json()
 
 
+    if not req_data or 'manager_id' not in req_data or 'phone1' not in req_data \
+        or 'first_name' not in req_data or 'last_name' not in req_data:
+        return make_response(jsonify({'error': 'Invalid request body, must include manager_id, phone1, and name'}), 400)
+
+
     manager_id = req_data['manager_id']
     phone1 = req_data['phone1']
-    phone2 = req_data['phone2']
     first_name = req_data['first_name']
     last_name = req_data['last_name']
 
-    insert_stmt = """
-    INSERT INTO Employees(manager, phone1, phone2, first_name, last_name)
-    VALUES ({manager}, {p1}, {p2}, '{fName}', '{lName}');
-    """
-    insert_stmt = insert_stmt.format(manager = manager_id, p1 = phone1, p2 = phone2, fName = first_name, lName = last_name)
+
+    if 'phone2' not in req_data:
+        insert_stmt = """
+        INSERT INTO Employees(manager, phone1, first_name, last_name)
+        VALUES ({manager}, {p1}, '{fName}', '{lName}');
+        """
+        insert_stmt = insert_stmt.format(manager = manager_id, p1 = phone1, fName = first_name, lName = last_name)
+
+    else:
+        phone2 = req_data['phone2']
+
+        insert_stmt = """
+        INSERT INTO Employees(manager, phone1, phone2, first_name, last_name)
+        VALUES ({manager}, {p1}, {p2}, '{fName}', '{lName}');
+        """
+        insert_stmt = insert_stmt.format(manager = manager_id, p1 = phone1, p2 = phone2, fName = first_name, lName = last_name)
 
     #execute the query
     cursor = db.get_db().cursor()
     cursor.execute(insert_stmt)
     db.get_db().commit()
-    return "Employee Added"
+    return "Employee {fName} {lName} Added".format(fName = first_name, lName = last_name)
 
 # Changed route from /locations<string:locationId>/schedule/<string:employeeId> to /schedule
 
@@ -139,7 +157,7 @@ def update_schedule():
 
     if not data or 'start_time' not in data or 'end_time' not in data \
         or 'location_id' not in data or 'employee_id' not in data:
-        return make_response(jsonify({'error': 'Invalid request body'}), 400)
+        return make_response(jsonify({'error': 'must include employee, location, and times'}), 400)
     
     start_time = data['start_time']
     end_time = data['end_time']
@@ -164,4 +182,4 @@ def update_schedule():
     cursor.execute(deletion_query)
     db.get_db().commit()
 
-    return "Added Shift"
+    return "Added Shift for employee {employee} from {start} to {finish}".format(employee = employeeID, start = start_time, finish = end_time)
