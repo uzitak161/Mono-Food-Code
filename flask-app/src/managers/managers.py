@@ -8,7 +8,7 @@ managers = Blueprint('managers', __name__)
 @managers.route('/revenue', methods=['GET'])
 def get_total_revenue():
     query = """
-    select SUM(OrderSum) from (select SUM(item_quantity * item_price) as OrderSum from Orders join OrderItems on Orders.order_id = OrderItems.order_id join Items I on OrderItems.item_id = I.item_id
+    select SUM(OrderSum) as revenue from (select SUM(item_quantity * item_price) as OrderSum from Orders join OrderItems on Orders.order_id = OrderItems.order_id join Items I on OrderItems.item_id = I.item_id
     group by Orders.order_id) as OrderTotals
     """
     cursor = db.get_db().cursor()
@@ -26,7 +26,7 @@ def get_total_revenue():
 @managers.route('/revenue/employee/<string:employeeID>', methods=['GET'])
 def get_revenue_for_employee(employeeID):
     query = """
-    select SUM(OrderSum) from (select SUM(item_quantity * item_price) as OrderSum from Orders join OrderItems on Orders.order_id = OrderItems.order_id join Items I on OrderItems.item_id = I.item_id
+    select SUM(OrderSum) as revenue from (select SUM(item_quantity * item_price) as OrderSum from Orders join OrderItems on Orders.order_id = OrderItems.order_id join Items I on OrderItems.item_id = I.item_id
     where employee_id = {ID}
     group by Orders.order_id) as OrderTotals
     """
@@ -47,7 +47,7 @@ def get_revenue_for_employee(employeeID):
 @managers.route('/revenue/location/<string:locationID>', methods=['GET'])
 def get_revenue_for_location(locationID):
     query = """
-    select SUM(OrderSum) from (select SUM(item_quantity * item_price) as OrderSum from Orders join OrderItems on Orders.order_id = OrderItems.order_id join Items I on OrderItems.item_id = I.item_id
+    select SUM(OrderSum) as revenue from (select SUM(item_quantity * item_price) as OrderSum from Orders join OrderItems on Orders.order_id = OrderItems.order_id join Items I on OrderItems.item_id = I.item_id
     where location_id = {ID}
     group by Orders.order_id) as OrderTotals
     """
@@ -70,6 +70,9 @@ def get_revenue_for_location(locationID):
 def delete_employee():
 
     req_data = request.get_json()
+
+    if not req_data or 'employee_id' not in req_data or 'location_id' not in req_data:
+        return make_response(jsonify({'error': 'Invalid request body, must include employee_id and location_id'}), 400)
 
     employee_id = req_data['employee_id']
     location_id = req_data['location_id']
@@ -99,7 +102,7 @@ def delete_employee():
     cursor = db.get_db().cursor()
     cursor.execute(query)
     db.get_db().commit()
-    return "Success"
+    return "Employee set as fired"
 
 # This adds the employee to the DB, the employee is not associated with a location or 'Employment' until they are added via a schedule. So while they may be added to
 # the employee table they are not considered hired. 
@@ -125,7 +128,7 @@ def create_employee():
     cursor = db.get_db().cursor()
     cursor.execute(insert_stmt)
     db.get_db().commit()
-    return "Success"
+    return "Employee Added"
 
 # Changed route from /locations<string:locationId>/schedule/<string:employeeId> to /schedule
 
