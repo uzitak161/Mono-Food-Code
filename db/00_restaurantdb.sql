@@ -13,7 +13,7 @@ CREATE TABLE Customers(
     last_name VARCHAR(15),
     phone1 VARCHAR(12) UNIQUE,
     phone2 VARCHAR(12) UNIQUE,
-    card_num VARCHAR(15) UNIQUE,
+    card_num VARCHAR(16) UNIQUE,
     cvv TEXT,
     expiration_date DATE,
     street VARCHAR(50),
