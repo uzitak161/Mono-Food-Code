@@ -135,7 +135,7 @@ def get_orders_for_employee(employeeID):
     return the_response
 
 
-@managers.route('/items', method=['POST'])
+@managers.route('/items', methods=['POST'])
 def add_menu_item():
     data = request.get_json()
 
@@ -160,7 +160,7 @@ def add_menu_item():
     return make_response(jsonify({'message': 'Item added'}), 201)
 
 
-@managers.route('/items/<string:itemID>', method=['PUT'])
+@managers.route('/items/<string:itemID>', methods=['PUT'])
 def update_menu_item(itemID):
     data = request.get_json()
 
@@ -186,7 +186,7 @@ def update_menu_item(itemID):
     return make_response(jsonify({'message': 'Item updated'}), 200)
 
 
-@managers.route('/items/<string:itemID>', method=['DELETE'])
+@managers.route('/items/<string:itemID>', methods=['DELETE'])
 def delete_menu_item(itemID):
     query = """
     DELETE FROM Items
