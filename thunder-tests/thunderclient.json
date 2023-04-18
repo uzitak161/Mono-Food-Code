@@ -665,12 +665,12 @@
     "method": "POST",
     "sortNum": 100000,
     "created": "2023-04-18T01:17:13.545Z",
-    "modified": "2023-04-18T01:19:02.226Z",
+    "modified": "2023-04-18T20:04:47.047Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"qty\": \"2\"\n    }\n  ],\n  \"employee_id\": \"1\",\n  \"location_id\": \"3\",\n  \"restrictions\": \"no nuts\"\n}\n",
+      "raw": "{\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"qty\": \"2\"\n    }\n  ],\n  \"location_id\": \"3\",\n  \"restrictions\": \"no nuts\"\n}\n",
       "form": []
     },
     "tests": [
@@ -744,6 +744,33 @@
         "custom": "",
         "action": "equal",
         "value": "Could not find order 10000"
+      }
+    ]
+  },
+  {
+    "_id": "88a4e397-dde3-4a9c-a004-af2910dcb259",
+    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
+    "containerId": "8e317a3f-5282-42b2-95fd-3733df2724a7",
+    "name": "success",
+    "url": "localhost:8001/c/locations",
+    "method": "GET",
+    "sortNum": 130000,
+    "created": "2023-04-18T20:07:08.864Z",
+    "modified": "2023-04-18T20:07:59.509Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "isjson",
+        "value": ""
       }
     ]
   }
