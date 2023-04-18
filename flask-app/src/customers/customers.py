@@ -162,7 +162,7 @@ def get_order_history(customerID):
 # get available items
 @customers.route('/items')
 def get_avail_items():
-    query = 'select item_name, item_price, ingredients from Items where availability = 1;'
+    query = 'select item_id, item_name, item_price, ingredients from Items where availability = 1;'
     cursor = db.get_db().cursor()
     cursor.execute(query)
     row_headers = [x[0] for x in cursor.description]
