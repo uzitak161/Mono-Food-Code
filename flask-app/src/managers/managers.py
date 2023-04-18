@@ -23,6 +23,26 @@ def get_total_revenue():
     the_response.mimetype = 'application/json'
     return the_response
 
+@managers.route('/revenue/start/<string:start>/end/<string:end>', methods=['GET'])
+def get_total_revenue_overTime(start, end):
+    query = """
+    select SUM(OrderSum) as revenue from (select SUM(item_quantity * item_price) as OrderSum from Orders join OrderItems on Orders.order_id = OrderItems.order_id join Items I on OrderItems.item_id = I.item_id
+    where order_date < '{end}' and order_date > '{start}'
+    group by Orders.order_id) as OrderTotals
+    """.format(start = start, end = end)
+    
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
 @managers.route('/revenue/employee/<string:employeeID>', methods=['GET'])
 def get_revenue_for_employee(employeeID):
     query = """
@@ -44,17 +64,17 @@ def get_revenue_for_employee(employeeID):
     the_response.mimetype = 'application/json'
     return the_response
 
-@managers.route('/revenue/location/<string:locationID>', methods=['GET'])
-def get_revenue_for_location(locationID):
+@managers.route('/revenue/location/<string:locationID>/start/<string:start>/end/<string:end>', methods=['GET'])
+def get_revenue_for_location(locationID, start, end):
 
 
 
     query = """
     select SUM(OrderSum) as revenue from (select SUM(item_quantity * item_price) as OrderSum from Orders join OrderItems on Orders.order_id = OrderItems.order_id join Items I on OrderItems.item_id = I.item_id
-    where location_id = {ID}
+    where location_id = {ID} and order_date < '{end}' and order_date > '{start}'
     group by Orders.order_id) as OrderTotals
     """
-    query = query.format(ID = locationID)
+    query = query.format(ID = locationID, start = start, end = end)
 
     cursor = db.get_db().cursor()
     cursor.execute(query)
@@ -151,12 +171,13 @@ def create_employee():
 # Changed route from /locations<string:locationId>/schedule/<string:employeeId> to /schedule
 
 
-@managers.route('/employee', methods=['GET'])
-def get_employeese():
+@managers.route('/employments', methods=['GET'])
+def get_employments():
     query = """
-    select Employees.employee_id, first_name, last_name, location_id, hire_date, 
-    fire_date as 'Fire Date', wage, manager, phone1, phone2 from Employees 
-    join Employments E on Employees.employee_id = E.employee_id;
+    select Employees.employee_id as 'Employee ID', first_name as 'First Name', last_name as 'Last Name', L.location_id as 'Location ID', hire_date as 'Hire Date',
+    fire_date as 'Fire Date', wage, manager, phone1, phone2, city, state, zip_code from Employees
+    LEFT OUTER join Employments E on Employees.employee_id = E.employee_id
+    join Locations L on E.location_id = L.location_id;
     """
 
     cursor = db.get_db().cursor()
@@ -170,6 +191,45 @@ def get_employeese():
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
+
+@managers.route('/employments', methods=['POST'])
+def assign_job():
+
+    req_data = request.get_json()
+
+    employee_id = req_data['employee_id']
+    location_id = req_data['location_id']
+    wage = req_data['wage']
+
+    query = """
+    INSERT INTO Employments (employee_id, location_id, hire_date, fire_date, wage)
+    VALUES ({employee}, {location}, CURRENT_DATE, null, {wage})
+    """.format(employee = employee_id, location = location_id, wage = wage)
+
+    #execute the query
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+    return "Employee {employee} Employed at {location}".format(employee = employee_id, location = location_id)
+
+@managers.route('/employees', methods=['GET'])
+def get_employees():
+    query = """
+    select first_name, last_name from Employees
+    """
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
 
 
 @managers.route('/schedule', methods=['PUT'])
@@ -204,3 +264,4 @@ def update_schedule():
     db.get_db().commit()
 
     return "Added Shift for employee {employee} from {start} to {finish}".format(employee = employeeID, start = start_time, finish = end_time)
+
