@@ -5,5 +5,34 @@
     "created": "2023-03-29T12:08:58.256Z",
     "sortNum": 10000,
     "folders": []
+  },
+  {
+    "_id": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "colName": "Manager Tests",
+    "created": "2023-04-17T21:44:16.796Z",
+    "sortNum": 20000,
+    "folders": [
+      {
+        "_id": "01829dc8-3501-4e8a-a3c1-3b6de8d96427",
+        "name": "Revenue",
+        "containerId": "",
+        "created": "2023-04-17T21:44:24.850Z",
+        "sortNum": 10000
+      },
+      {
+        "_id": "e47a3fc7-3e59-4751-a026-b44c86eac048",
+        "name": "Employee",
+        "containerId": "",
+        "created": "2023-04-17T21:47:00.043Z",
+        "sortNum": 20000
+      },
+      {
+        "_id": "489a14ec-a32e-4363-a108-5c8cdf64a94f",
+        "name": "Schedule",
+        "containerId": "",
+        "created": "2023-04-17T22:21:53.432Z",
+        "sortNum": 40000
+      }
+    ]
   }
 ]
