@@ -143,9 +143,9 @@ def make_res(customerID):
 @customers.route('/orders/<int:customerID>')
 def get_order_history(customerID):
     query = f'''
-    select order_id, location_id, customer_id, employee_id, status, order_date, restrictions
-    from Orders
-    where Orders.customer_id = {customerID};
+    select l.city, l.zip_code, o.order_id, l.location_id, o.customer_id, o.employee_id, o.status, o.order_date, o.restrictions
+    from Orders o join Locations l on o.location_id = l.location_id
+    where o.customer_id = {customerID};
     '''
     cursor = db.get_db().cursor()
     cursor.execute(query)
