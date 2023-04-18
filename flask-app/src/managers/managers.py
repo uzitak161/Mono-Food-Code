@@ -151,6 +151,27 @@ def create_employee():
 # Changed route from /locations<string:locationId>/schedule/<string:employeeId> to /schedule
 
 
+@managers.route('/employee', methods=['GET'])
+def get_employeese():
+    query = """
+    select Employees.employee_id, first_name, last_name, location_id, hire_date, 
+    fire_date as 'Fire Date', wage, manager, phone1, phone2 from Employees 
+    join Employments E on Employees.employee_id = E.employee_id;
+    """
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+
 @managers.route('/schedule', methods=['PUT'])
 def update_schedule():
     data = request.get_json()
