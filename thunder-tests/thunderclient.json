@@ -61,7 +61,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-04-17T21:44:45.412Z",
-    "modified": "2023-04-18T01:20:59.452Z",
+    "modified": "2023-04-18T03:04:50.099Z",
     "headers": [],
     "params": [],
     "body": {
@@ -74,7 +74,7 @@
         "type": "res-code",
         "custom": "",
         "action": "equal",
-        "value": "200"
+        "value": "201"
       },
       {
         "type": "Content-Length",
@@ -717,6 +717,33 @@
         "custom": "",
         "action": "equal",
         "value": "400"
+      }
+    ]
+  },
+  {
+    "_id": "fcc21003-1f9c-42c9-88bc-377fa182940a",
+    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
+    "containerId": "78fef921-6168-4be1-99c0-924c398c2560",
+    "name": "non-existent",
+    "url": "localhost:8001/c/orders/10000",
+    "method": "DELETE",
+    "sortNum": 120000,
+    "created": "2023-04-18T02:59:59.692Z",
+    "modified": "2023-04-18T03:04:00.593Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "404"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Could not find order 10000"
       }
     ]
   }

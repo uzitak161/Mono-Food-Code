@@ -76,6 +76,22 @@ def place_order(customerID):
     response.status_code = 200
     return response
 
+# delete an order
+@customers.route('orders/<int:orderID>', methods=['DELETE'])
+def del_order(orderID):
+    query = f'delete from Orders where order_id = {orderID}'
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+    rows_affected = cursor.rowcount
+    if rows_affected:
+        response = make_response(f'Successfully deleted order {orderID}')
+        response.status_code = 204
+    else:
+        response = make_response(f'Could not find order {orderID}')
+        response.status_code = 404
+    return response
+
 # leave a review
 @customers.route('/feedback/<int:customerID>', methods=['POST'])
 def leave_review(customerID):
@@ -95,7 +111,7 @@ def leave_review(customerID):
     db.get_db().commit()
     feedback_id = cursor.lastrowid
     response = make_response(f'Successfully left review. Feedback ID: {feedback_id}')
-    response.status_code = 200
+    response.status_code = 201
     return response
 
 # make a reservation
@@ -120,7 +136,7 @@ def make_res(customerID):
     db.get_db().commit()
     res_id = cursor.lastrowid
     response = make_response(f'Successfully made reservation. Reservation ID: {res_id}')
-    response.status_code = 200
+    response.status_code = 201
     return response
 
 # get order history
