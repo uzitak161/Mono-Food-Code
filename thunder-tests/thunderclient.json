@@ -281,5 +281,443 @@
         "value": "400"
       }
     ]
+  },
+  {
+    "_id": "a13e716f-19a7-4369-aa2a-00ac89937cd5",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "01829dc8-3501-4e8a-a3c1-3b6de8d96427",
+    "name": "Total Revenue",
+    "url": "localhost:8001/m/revenue",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-17T21:44:31.820Z",
+    "modified": "2023-04-17T23:20:41.873Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "[{\"revenue\":\"864.23\"}]"
+      },
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "479d2afd-39d3-4fa2-be7a-5ddd904491eb",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "01829dc8-3501-4e8a-a3c1-3b6de8d96427",
+    "name": "Employee Revenue",
+    "url": "localhost:8001/m/revenue/employee/3",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-04-17T21:45:19.671Z",
+    "modified": "2023-04-17T23:20:28.720Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "[{\"revenue\":\"29.46\"}]"
+      },
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "8b667149-0343-4db4-bab9-234ea41012fd",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "e47a3fc7-3e59-4751-a026-b44c86eac048",
+    "name": "Delete Employee",
+    "url": "localhost:8001/m/employee",
+    "method": "DELETE",
+    "sortNum": 30000,
+    "created": "2023-04-17T21:47:42.361Z",
+    "modified": "2023-04-17T21:51:18.460Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"employee_id\" : 1,\n  \"location_id\" : 3\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Employee set as fired"
+      }
+    ]
+  },
+  {
+    "_id": "eb560c31-4158-418b-9d63-563661845332",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "e47a3fc7-3e59-4751-a026-b44c86eac048",
+    "name": "Delete Emloyee With Fire Date",
+    "url": "localhost:8001/m/employee",
+    "method": "DELETE",
+    "sortNum": 40000,
+    "created": "2023-04-17T21:52:08.158Z",
+    "modified": "2023-04-17T21:53:00.966Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"employee_id\" : 1,\n  \"location_id\" : 3,\n  \"fire_date\" : \"2023-07-12\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Employee set as fired"
+      }
+    ]
+  },
+  {
+    "_id": "506b83ce-2dcd-4925-b134-e4ec0a3326ea",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "e47a3fc7-3e59-4751-a026-b44c86eac048",
+    "name": "Delete Employee No LocationID",
+    "url": "localhost:8001/m/employee",
+    "method": "DELETE",
+    "sortNum": 50000,
+    "created": "2023-04-17T21:53:18.613Z",
+    "modified": "2023-04-17T21:56:22.262Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"employee_id\": 1\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "400"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "{\"error\":\"Invalid request body, must include employee_id and location_id\"}"
+      }
+    ]
+  },
+  {
+    "_id": "f10bf437-03da-428f-b85e-455583e50460",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "e47a3fc7-3e59-4751-a026-b44c86eac048",
+    "name": "Delete Employee No EmployeeID",
+    "url": "localhost:8001/m/employee",
+    "method": "DELETE",
+    "sortNum": 60000,
+    "created": "2023-04-17T21:56:27.547Z",
+    "modified": "2023-04-17T21:56:52.079Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"location_id\": 3\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "400"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "{\"error\":\"Invalid request body, must include employee_id and location_id\"}"
+      }
+    ]
+  },
+  {
+    "_id": "8e4429f1-9020-4b35-a4d6-467c3643beef",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "e47a3fc7-3e59-4751-a026-b44c86eac048",
+    "name": "Create Employee with No Manager ID",
+    "url": "localhost:8001/m/employee",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2023-04-17T22:01:40.233Z",
+    "modified": "2023-04-17T22:17:27.898Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"phone1\" : \"756-173-5234\",\n  \"first_name\" : \"Eli\",\n  \"last_name\" : \"Manning\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "400"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "{\"error\":\"Invalid request body, must include manager_id, phone1, and name\"}"
+      }
+    ]
+  },
+  {
+    "_id": "0599ab1c-efe5-4972-89a5-251866aba611",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "e47a3fc7-3e59-4751-a026-b44c86eac048",
+    "name": "Create Employee With no Phone 2",
+    "url": "localhost:8001/m/employee",
+    "method": "POST",
+    "sortNum": 70000,
+    "created": "2023-04-17T22:14:01.123Z",
+    "modified": "2023-04-17T23:22:35.428Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"manager_id\" : 1,\n  \"phone1\" : \"756-173-5160\",\n  \"first_name\" : \"Eli\",\n  \"last_name\" : \"Manning\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Employee Eli Manning Added"
+      }
+    ]
+  },
+  {
+    "_id": "a1b4aa0a-87a7-4a42-bdb7-244f231b5332",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "e47a3fc7-3e59-4751-a026-b44c86eac048",
+    "name": "Create Employee",
+    "url": "localhost:8001/m/employee",
+    "method": "POST",
+    "sortNum": 80000,
+    "created": "2023-04-17T22:15:07.918Z",
+    "modified": "2023-04-17T22:19:56.904Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"manager_id\" : 1,\n  \"phone1\" : \"756-173-5164\",\n  \"phone2\" : \"756-173-5169\",\n  \"first_name\" : \"Jacob\",\n  \"last_name\" : \"Kondo\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Employee Jacob Kondo Added"
+      }
+    ]
+  },
+  {
+    "_id": "4e9929bc-d44e-42cf-97bc-6850551eea1b",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "489a14ec-a32e-4363-a108-5c8cdf64a94f",
+    "name": "Add Schedule",
+    "url": "localhost:8001/m/schedule",
+    "method": "PUT",
+    "sortNum": 70000,
+    "created": "2023-04-17T22:22:02.261Z",
+    "modified": "2023-04-17T22:25:58.893Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"employee_id\" : 11,\n  \"start_time\" : \"11:00:00\",\n  \"end_time\" : \"2:00:00\",\n  \"location_id\" : 5\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Added Shift for employee 11 from 11:00:00 to 2:00:00"
+      }
+    ]
+  },
+  {
+    "_id": "f208035d-94fb-489e-8cdc-176e4fdf9e78",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "489a14ec-a32e-4363-a108-5c8cdf64a94f",
+    "name": "Add Schedule No LocationID",
+    "url": "localhost:8001/m/schedule",
+    "method": "PUT",
+    "sortNum": 80000,
+    "created": "2023-04-17T22:26:37.843Z",
+    "modified": "2023-04-17T22:27:43.859Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"employee_id\" : 11,\n  \"start_time\" : \"11:00:00\",\n  \"end_time\" : \"2:00:00\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "{\"error\":\"must include employee, location, and times\"}"
+      },
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "400"
+      }
+    ]
+  },
+  {
+    "_id": "6196d4bc-e570-4ad0-94ba-8f9ee94d7075",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "489a14ec-a32e-4363-a108-5c8cdf64a94f",
+    "name": "Add Schedule No EmployeeID",
+    "url": "localhost:8001/m/schedule",
+    "method": "PUT",
+    "sortNum": 90000,
+    "created": "2023-04-17T22:27:59.722Z",
+    "modified": "2023-04-17T22:28:25.471Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"start_time\" : \"11:00:00\",\n  \"end_time\" : \"2:00:00\",\n  \"location_id\" : 5\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "{\"error\":\"must include employee, location, and times\"}"
+      },
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "400"
+      }
+    ]
+  },
+  {
+    "_id": "8a38913c-b196-4db4-9f7e-c6f4022011ff",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "489a14ec-a32e-4363-a108-5c8cdf64a94f",
+    "name": "Add Schedule No Start Time",
+    "url": "localhost:8001/m/schedule",
+    "method": "PUT",
+    "sortNum": 100000,
+    "created": "2023-04-17T22:28:49.899Z",
+    "modified": "2023-04-17T22:29:12.522Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"employee_id\" : 11,\n  \"end_time\" : \"2:00:00\",\n  \"location_id\" : 5\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "{\"error\":\"must include employee, location, and times\"}"
+      },
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "400"
+      }
+    ]
+  },
+  {
+    "_id": "86cdcb45-5b18-40c6-a7eb-3d5c9044c5ba",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "489a14ec-a32e-4363-a108-5c8cdf64a94f",
+    "name": "Add Schedule No End Time",
+    "url": "localhost:8001/m/schedule",
+    "method": "PUT",
+    "sortNum": 110000,
+    "created": "2023-04-17T22:29:39.622Z",
+    "modified": "2023-04-17T22:29:57.928Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"employee_id\" : 11,\n  \"start_time\" : \"11:00:00\",\n  \"location_id\" : 5\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "{\"error\":\"must include employee, location, and times\"}"
+      },
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "400"
+      }
+    ]
   }
 ]
