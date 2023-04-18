@@ -48,7 +48,7 @@ def place_order(customerID):
         response = make_response('Bad request: order must contain items')
         response.status_code = 400
         return response
-    employee = data['employee_id']
+    employee = data.get('employee_id', 1)
     location = data['location_id']
     try:
         restrictions = data['restrictions']
@@ -182,6 +182,25 @@ def get_location_info(locationID):
     select location_id, city, state, zip_code, phone, opening, closing
     from Locations
     where location_id = {locationID}
+    '''
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(json.dumps(json_data, default=str))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+# get locations
+@customers.route('/locations')
+def get_locations():
+    query = f'''
+    select location_id, city, state, zip_code, phone, opening, closing
+    from Locations
     '''
     cursor = db.get_db().cursor()
     cursor.execute(query)
