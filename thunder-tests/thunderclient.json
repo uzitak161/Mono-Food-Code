@@ -665,12 +665,12 @@
     "method": "POST",
     "sortNum": 100000,
     "created": "2023-04-18T01:17:13.545Z",
-    "modified": "2023-04-18T20:04:47.047Z",
+    "modified": "2023-04-19T01:02:27.836Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"qty\": \"2\"\n    }\n  ],\n  \"location_id\": \"3\",\n  \"restrictions\": \"no nuts\"\n}\n",
+      "raw": "{\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"qty\": \"2\"\n    },\n    {\n      \"id\": \"3\",\n      \"qty\": \"10\"\n    }\n  ],\n  \"location_id\": \"3\",\n  \"restrictions\": \"no nuts\"\n}\n",
       "form": []
     },
     "tests": [

@@ -29,7 +29,7 @@ def signup():
     query = f'''
     insert into Customers
     (first_name, last_name, phone1, phone2, card_num, cvv, expiration_date, street, city, state, zip_code)
-    values ('{first}', '{last}', '{phone1}', '{phone2}', '{card}', '{cvv}', '{expiration}', '{street}', '{city}', '{state}', {zip_code})
+    values ('{first}', '{last}', '{phone1}', '{phone2}', '{card}', '{cvv}', '{expiration}', '{street}', '{city}', '{state}', '{zip_code}')
     '''
     current_app.logger.info(query)
 
@@ -63,12 +63,12 @@ def place_order(customerID):
     cursor = db.get_db().cursor()
     cursor.execute(query1)
     order_id = cursor.lastrowid
-    query2 = ''
+    query2 = 'insert into OrderItems (item_id, order_id, item_quantity) values '
     for item in items:    
         id = item['id']
         qty = item['qty']
-        query2 += f'insert into OrderItems (item_id, order_id, item_quantity) values({id}, {order_id}, {qty}),'
-    query2 = query2[:-1]+';'
+        query2 += f'({id}, {order_id}, {qty}),'
+    query2 = query2[:-1] + ';'
     current_app.logger.info(query2)
     cursor.execute(query2)
     db.get_db().commit()
