@@ -200,6 +200,7 @@ INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration
 # LOCATIONS TABLE
 INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Boston','MA','02120','617-973-7699','4:00','10:00');
 INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Cambridge','MA','02114','617-731-9892','5:00','10:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Ridgewood','NJ','07450','423-961-3691','5:00','11:00');
 INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Holmdel','NJ','22816','617-430-4335','4:00','10:30');
 INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('San Diego','CA','91129','413-361-5631','5:00','11:00');
 INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Manhattan','NY','11625','413-788-9759','1:00','11:00');
