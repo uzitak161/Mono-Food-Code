@@ -73,9 +73,9 @@ def update_profile(customerID):
         phone2 = data['phone2']
     except:
         phone2 = None
-    card = data['card']
+    card = data['card_num']
     cvv = data['cvv']
-    expiration = data['expiration']
+    expiration = data['expiration_date']
     street = data['street']
     city = data['city']
     state = data['state']
