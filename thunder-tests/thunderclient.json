@@ -34,7 +34,7 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-04-17T21:44:31.820Z",
-    "modified": "2023-04-18T23:21:21.612Z",
+    "modified": "2023-04-19T17:16:16.493Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -42,7 +42,7 @@
         "type": "res-body",
         "custom": "",
         "action": "equal",
-        "value": "[{\"revenue\":\"895.27\"}]"
+        "value": "[{\"revenue\":\"1076.44\"}]"
       },
       {
         "type": "res-code",
@@ -93,7 +93,7 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-04-17T21:45:19.671Z",
-    "modified": "2023-04-17T23:20:28.720Z",
+    "modified": "2023-04-19T17:16:30.638Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -101,7 +101,7 @@
         "type": "res-body",
         "custom": "",
         "action": "equal",
-        "value": "[{\"revenue\":\"29.46\"}]"
+        "value": "[{\"revenue\":\"34.63\"}]"
       },
       {
         "type": "res-code",
@@ -368,166 +368,6 @@
     ]
   },
   {
-    "_id": "4e9929bc-d44e-42cf-97bc-6850551eea1b",
-    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
-    "containerId": "489a14ec-a32e-4363-a108-5c8cdf64a94f",
-    "name": "Add Schedule",
-    "url": "localhost:8001/m/schedule",
-    "method": "PUT",
-    "sortNum": 70000,
-    "created": "2023-04-17T22:22:02.261Z",
-    "modified": "2023-04-17T22:25:58.893Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"employee_id\" : 11,\n  \"start_time\" : \"11:00:00\",\n  \"end_time\" : \"2:00:00\",\n  \"location_id\" : 5\n}",
-      "form": []
-    },
-    "tests": [
-      {
-        "type": "res-code",
-        "custom": "",
-        "action": "equal",
-        "value": "200"
-      },
-      {
-        "type": "res-body",
-        "custom": "",
-        "action": "equal",
-        "value": "Added Shift for employee 11 from 11:00:00 to 2:00:00"
-      }
-    ]
-  },
-  {
-    "_id": "f208035d-94fb-489e-8cdc-176e4fdf9e78",
-    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
-    "containerId": "489a14ec-a32e-4363-a108-5c8cdf64a94f",
-    "name": "Add Schedule No LocationID",
-    "url": "localhost:8001/m/schedule",
-    "method": "PUT",
-    "sortNum": 80000,
-    "created": "2023-04-17T22:26:37.843Z",
-    "modified": "2023-04-17T22:27:43.859Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"employee_id\" : 11,\n  \"start_time\" : \"11:00:00\",\n  \"end_time\" : \"2:00:00\"\n}",
-      "form": []
-    },
-    "tests": [
-      {
-        "type": "res-body",
-        "custom": "",
-        "action": "equal",
-        "value": "{\"error\":\"must include employee, location, and times\"}"
-      },
-      {
-        "type": "res-code",
-        "custom": "",
-        "action": "equal",
-        "value": "400"
-      }
-    ]
-  },
-  {
-    "_id": "6196d4bc-e570-4ad0-94ba-8f9ee94d7075",
-    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
-    "containerId": "489a14ec-a32e-4363-a108-5c8cdf64a94f",
-    "name": "Add Schedule No EmployeeID",
-    "url": "localhost:8001/m/schedule",
-    "method": "PUT",
-    "sortNum": 90000,
-    "created": "2023-04-17T22:27:59.722Z",
-    "modified": "2023-04-17T22:28:25.471Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"start_time\" : \"11:00:00\",\n  \"end_time\" : \"2:00:00\",\n  \"location_id\" : 5\n}",
-      "form": []
-    },
-    "tests": [
-      {
-        "type": "res-body",
-        "custom": "",
-        "action": "equal",
-        "value": "{\"error\":\"must include employee, location, and times\"}"
-      },
-      {
-        "type": "res-code",
-        "custom": "",
-        "action": "equal",
-        "value": "400"
-      }
-    ]
-  },
-  {
-    "_id": "8a38913c-b196-4db4-9f7e-c6f4022011ff",
-    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
-    "containerId": "489a14ec-a32e-4363-a108-5c8cdf64a94f",
-    "name": "Add Schedule No Start Time",
-    "url": "localhost:8001/m/schedule",
-    "method": "PUT",
-    "sortNum": 100000,
-    "created": "2023-04-17T22:28:49.899Z",
-    "modified": "2023-04-17T22:29:12.522Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"employee_id\" : 11,\n  \"end_time\" : \"2:00:00\",\n  \"location_id\" : 5\n}",
-      "form": []
-    },
-    "tests": [
-      {
-        "type": "res-body",
-        "custom": "",
-        "action": "equal",
-        "value": "{\"error\":\"must include employee, location, and times\"}"
-      },
-      {
-        "type": "res-code",
-        "custom": "",
-        "action": "equal",
-        "value": "400"
-      }
-    ]
-  },
-  {
-    "_id": "86cdcb45-5b18-40c6-a7eb-3d5c9044c5ba",
-    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
-    "containerId": "489a14ec-a32e-4363-a108-5c8cdf64a94f",
-    "name": "Add Schedule No End Time",
-    "url": "localhost:8001/m/schedule",
-    "method": "PUT",
-    "sortNum": 110000,
-    "created": "2023-04-17T22:29:39.622Z",
-    "modified": "2023-04-17T22:29:57.928Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"employee_id\" : 11,\n  \"start_time\" : \"11:00:00\",\n  \"location_id\" : 5\n}",
-      "form": []
-    },
-    "tests": [
-      {
-        "type": "res-body",
-        "custom": "",
-        "action": "equal",
-        "value": "{\"error\":\"must include employee, location, and times\"}"
-      },
-      {
-        "type": "res-code",
-        "custom": "",
-        "action": "equal",
-        "value": "400"
-      }
-    ]
-  },
-  {
     "_id": "af374667-d121-4424-b270-e90a5eeb0229",
     "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
     "containerId": "1a94b2fa-3b45-4624-8323-b9daa50d24dc",
@@ -770,6 +610,125 @@
         "type": "res-body",
         "custom": "",
         "action": "isjson",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "_id": "d644f125-0925-4d34-a443-8e2805b45257",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "01829dc8-3501-4e8a-a3c1-3b6de8d96427",
+    "name": "Location Revenue",
+    "url": "localhost:8001/m/revenue/location/2/start/2001-12-24/end/2023-04-10",
+    "method": "GET",
+    "sortNum": 120000,
+    "created": "2023-04-19T17:16:45.247Z",
+    "modified": "2023-04-19T17:19:24.867Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "[{\"revenue\":\"103.84\"}]"
+      }
+    ]
+  },
+  {
+    "_id": "c0a8ac81-c417-476c-9194-5c68fa3c50b5",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "01829dc8-3501-4e8a-a3c1-3b6de8d96427",
+    "name": "Total Revenue Over Time",
+    "url": "localhost:8001/m/revenue/start/2001-12-24/end/2023-04-04",
+    "method": "GET",
+    "sortNum": 130000,
+    "created": "2023-04-19T17:19:43.596Z",
+    "modified": "2023-04-19T17:21:14.617Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "[{\"revenue\":\"265.69\"}]"
+      }
+    ]
+  },
+  {
+    "_id": "3dd5be4d-ea01-42b2-8916-1273e3695d55",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "ad9a3a2a-b214-4d6f-b8b9-541afcec909e",
+    "name": "Get All Employments",
+    "url": "localhost:8001/m/employments",
+    "method": "GET",
+    "sortNum": 140000,
+    "created": "2023-04-19T17:24:23.297Z",
+    "modified": "2023-04-19T17:27:34.139Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "json-query",
+        "custom": "json[0]['location_id']",
+        "action": "equal",
+        "value": "asd"
+      }
+    ]
+  },
+  {
+    "_id": "dd044a99-a805-4e73-9edd-91c95dfb05ec",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "ad9a3a2a-b214-4d6f-b8b9-541afcec909e",
+    "name": "Add Employment",
+    "url": "localhost:8001/m/employments",
+    "method": "POST",
+    "sortNum": 150000,
+    "created": "2023-04-19T17:28:18.354Z",
+    "modified": "2023-04-19T17:30:13.998Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"location_id\" : 1,\n  \"employee_id\" : 7,\n  \"wage\" : 15.75\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
         "value": ""
       }
     ]
