@@ -536,7 +536,7 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-04-17T22:41:50.784Z",
-    "modified": "2023-04-18T01:14:52.638Z",
+    "modified": "2023-04-19T00:26:34.492Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -544,7 +544,7 @@
         "type": "res-body",
         "custom": "",
         "action": "count",
-        "value": "7"
+        "value": "9"
       },
       {
         "type": "res-body",
