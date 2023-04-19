@@ -286,16 +286,16 @@ INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES
 
 
 # ITEMS TABLE
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Dino Chicken Nuggets',9.05,'Chicken, dinosaur remains',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Beef Tartar',35.67,'Beef',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Grilled Cheese',6.47,'Bread, cheese',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Caesar Salad',16.0,'Iceburg lettuce, ranch dressing, croutons',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Chicken Quesadilla',14.08,'Tortilla, three cheese blend, roasted chicken',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('French Fries',18.21,'Potatoe',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Spagetti',7.69,'Pasta, sauce, meatballs',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Cheese Pizza',14.35,'Dough, cheese, sauce',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Tomato Soup',14.67,'Tomato, soup',0);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Hamburger',9.05,'Brioche bun, angus beef, lettuce, tomato, onion',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Dino Chicken Nuggets',9.05,'Chicken, dinosaur remains',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Beef Tartar',35.67,'Beef',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Grilled Cheese',6.47,'Bread, cheese',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Caesar Salad',16.0,'Iceburg lettuce, ranch dressing, croutons',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Chicken Quesadilla',14.08,'Tortilla, three cheese blend, roasted chicken',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('French Fries',18.21,'Potatoe',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Spagetti',7.69,'Pasta, sauce, meatballs',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Cheese Pizza',14.35,'Dough, cheese, sauce',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Tomato Soup',14.67,'Tomato, soup',0);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Hamburger',9.05,'Brioche bun, angus beef, lettuce, tomato, onion',1);
 
 # ORDERS TABLE
 INSERT INTO Orders(location_id,customer_id,employee_id,status,order_date,restrictions) VALUES (2,29,18,0,'2023-09-25','Dairy Free');
