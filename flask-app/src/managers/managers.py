@@ -67,8 +67,6 @@ def get_revenue_for_employee(employeeID):
 @managers.route('/revenue/location/<string:locationID>/start/<string:start>/end/<string:end>', methods=['GET'])
 def get_revenue_for_location(locationID, start, end):
 
-
-
     query = """
     select SUM(OrderSum) as revenue from (select SUM(item_quantity * item_price) as OrderSum from Orders join OrderItems on Orders.order_id = OrderItems.order_id join Items I on OrderItems.item_id = I.item_id
     where location_id = {ID} and order_date < '{end}' and order_date > '{start}'
@@ -107,7 +105,7 @@ def delete_employee():
     if (not fire_date):
         query = """
             UPDATE Employments
-            SET fire_date = DATE_FORMAT(fire_date , CURRENT_DATE)
+            SET fire_date = CURRENT_DATE
             where location_id = {locID} and employee_id = {employeeID};
             """
         query = query.format(locID = location_id, employeeID = employee_id)
@@ -168,8 +166,6 @@ def create_employee():
     db.get_db().commit()
     return "Employee {fName} {lName} Added".format(fName = first_name, lName = last_name)
 
-# Changed route from /locations<string:locationId>/schedule/<string:employeeId> to /schedule
-
 
 @managers.route('/employments', methods=['GET'])
 def get_employments():
@@ -210,25 +206,16 @@ def assign_job():
     cursor = db.get_db().cursor()
     cursor.execute(query)
     db.get_db().commit()
-    return "Employee {employee} Employed at {location}".format(employee = employee_id, location = location_id)
 
-@managers.route('/employees', methods=['GET'])
-def get_employees():
     query = """
-    select first_name, last_name from Employees
-    """
+    INSERT INTO Shifts (employee_id, location_id)
+    VALUES ({employee}, {location});
+    """.format(employee = employee_id, location = location_id)
 
-    cursor = db.get_db().cursor()
     cursor.execute(query)
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return the_response
+    db.get_db().commit()
+
+    return "Employee {employee} Employed at Location: {location}".format(employee = employee_id, location = location_id)
 
 
 @managers.route('/customers', methods=['GET'])
@@ -368,31 +355,3 @@ def num_orders_for_item():
     the_response.mimetype = 'application/json'
     return the_response
 
-
-@managers.route('/schedule', methods=['PUT'])
-def update_schedule():
-    data = request.get_json()
-
-    if not data or 'start_time' not in data or 'end_time' not in data \
-        or 'location_id' not in data or 'employee_id' not in data:
-        return make_response(jsonify({'error': 'must include employee, location, and times'}), 400)
-    
-    start_time = data['start_time']
-    end_time = data['end_time']
-    locationID = data['location_id']
-    employeeID = data['employee_id']
-
-    query = """
-    INSERT INTO Shifts (employee_id, shift_start, shift_end, location_id)
-    VALUES ({employeeId}, '{startTime}', '{endTime}', {locID});
-    """.format(employeeId = employeeID, startTime = start_time, endTime = end_time, locID = locationID)
-    deletion_query = """
-    DELETE FROM Shifts where
-                       employee_id = {employeeId} and location_id = {locID} and shift_start > '{startTime}' and shift_end < '{endTime}';
-    """.format(employeeId = employeeID, startTime = start_time, endTime = end_time, locID = locationID)
-
-    cursor = db.get_db().cursor()
-    cursor.execute(deletion_query)
-    db.get_db().commit()
-
-    return "Added Shift for employee {employee} from {start} to {finish}".format(employee = employeeID, start = start_time, finish = end_time)

@@ -775,6 +775,27 @@
     ]
   },
   {
+    "_id": "d644f125-0925-4d34-a443-8e2805b45257",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "01829dc8-3501-4e8a-a3c1-3b6de8d96427",
+    "name": "Location Revenue",
+    "url": "localhost:8001/m/revenue/location/2/start/2001-12-24/end/2023-04-10",
+    "method": "GET",
+    "sortNum": 120000,
+    "created": "2023-04-19T17:16:45.247Z",
+    "modified": "2023-04-19T17:19:24.867Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "[{\"revenue\":\"103.84\"}]"
+      }
+    ]
+  },
+  {
     "_id": "316f9110-3c45-4375-b5cf-93c089b5483b",
     "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
     "containerId": "",
@@ -885,6 +906,27 @@
     ]
   },
   {
+    "_id": "c0a8ac81-c417-476c-9194-5c68fa3c50b5",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "01829dc8-3501-4e8a-a3c1-3b6de8d96427",
+    "name": "Total Revenue Over Time",
+    "url": "localhost:8001/m/revenue/start/2001-12-24/end/2023-04-04",
+    "method": "GET",
+    "sortNum": 130000,
+    "created": "2023-04-19T17:19:43.596Z",
+    "modified": "2023-04-19T17:21:14.617Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "[{\"revenue\":\"265.69\"}]"
+      }
+    ]
+  },
+  {
     "_id": "3b2854ef-ef3d-4f8f-b741-90ae48421394",
     "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
     "containerId": "",
@@ -925,6 +967,71 @@
         "custom": "json.message",
         "action": "equal",
         "value": "Item updated"
+      }
+    ]
+  },
+  {
+    "_id": "3dd5be4d-ea01-42b2-8916-1273e3695d55",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "ad9a3a2a-b214-4d6f-b8b9-541afcec909e",
+    "name": "Get All Employments",
+    "url": "localhost:8001/m/employments",
+    "method": "GET",
+    "sortNum": 140000,
+    "created": "2023-04-19T17:24:23.297Z",
+    "modified": "2023-04-19T17:27:34.139Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "json-query",
+        "custom": "json[0]['location_id']",
+        "action": "equal",
+        "value": "asd"
+      }
+    ]
+  },
+  {
+    "_id": "dd044a99-a805-4e73-9edd-91c95dfb05ec",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "ad9a3a2a-b214-4d6f-b8b9-541afcec909e",
+    "name": "Add Employment",
+    "url": "localhost:8001/m/employments",
+    "method": "POST",
+    "sortNum": 150000,
+    "created": "2023-04-19T17:28:18.354Z",
+    "modified": "2023-04-19T17:30:13.998Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"location_id\" : 1,\n  \"employee_id\" : 7,\n  \"wage\" : 15.75\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": ""
       }
     ]
   },
