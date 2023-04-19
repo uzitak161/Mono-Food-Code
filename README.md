@@ -57,6 +57,9 @@ The Mono-Food UI is fully developed through appsmith. Our frontend portion of ou
 
 # Technical Overview:
 
+
+## Database Design
+
 All of our data is created and managed via a MySql database called resterauntdb. Our database was designed with the following ER diagram. 
 
 
@@ -67,3 +70,7 @@ Here is the resulting Relational MySql Database shown in DataGrip.
 
 <img width="936" alt="Screen Shot 2023-04-19 at 3 33 47 PM" src="https://user-images.githubusercontent.com/77938678/233180969-1d5f4462-517a-4fa3-9b7e-d5876c5fd479.png">
 
+
+## API Design
+
+Our API is divided into 2 blueprints, each managing interactions of a different user type. The Customers' routes contain all calls necessary to display, update and delete data that is within their privilege. Managers essentially have additional capabilities and permissions. We can ensure that no user that is logged in as a customer has access to routes within the manager blueprint, and we plan to do the same with the employee's blueprint once we begin development. 
