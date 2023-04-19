@@ -198,11 +198,11 @@ INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration
 INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Sheryl','Cobon','508-319-6971','260-568-2831','373296345678987',288,'2022-12-22','72171 Village Green Place','Brockton','MA',2405);
 
 # LOCATIONS TABLE
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Boston','MA',2216,'617-973-7699','11:00','10:00');
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Boston','MA',2203,'617-731-9892','11:00','10:00');
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Boston','MA',2216,'617-430-4335','11:00','10:00');
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Springfield','MA',1129,'413-361-5631','11:00','10:00');
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Springfield','MA',1105,'413-788-9759','11:00','10:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Boston','MA',2216,'617-973-7699','4:00','10:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Cambridge','MA',2203,'617-731-9892','5:00','10:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Holmdel','NJ',2216,'617-430-4335','4:00','10:30');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('San Diego','CA',1129,'413-361-5631','5:00','11:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Manhattan','NY',1105,'413-788-9759','1:00','11:00');
 
 # EMPLOYEES TABLE
 INSERT INTO Employees(manager,phone1,phone2,first_name,last_name) VALUES (NULL,'383-196-1701','714-210-9831','Sheree','Jeffryes');
@@ -286,14 +286,16 @@ INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES
 
 
 # ITEMS TABLE
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (1,'Grilled Cheese',6.47,'Pizza Dough',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (2,'Caesar Salad',16.0,'Ground Beef',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (3,'Chicken Quesadilla',14.08,'Dressing',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (4,'French Fries',18.21,'Ground Beef',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (5,'Spagetti',7.69,'Tomato Sauce',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (6,'Cheese Pizza',14.35,'Bell Peppers',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (7,'Tomato Soup',14.67,'Croutons',0);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (8,'Hamburger',9.05,'Croutons',1);
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Dino Chicken Nuggets',9.05,'Chicken, dinosaur remains',1);
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Beef Tartar',35.67,'Beef',1);
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Grilled Cheese',6.47,'Bread, cheese',1);
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Caesar Salad',16.0,'Iceburg lettuce, ranch dressing, croutons',1);
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Chicken Quesadilla',14.08,'Tortilla, three cheese blend, roasted chicken',1);
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('French Fries',18.21,'Potatoe',1);
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Spagetti',7.69,'Pasta, sauce, meatballs',1);
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Cheese Pizza',14.35,'Dough, cheese, sauce',1);
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Tomato Soup',14.67,'Tomato, soup',0);
+INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES ('Hamburger',9.05,'Brioche bun, angus beef, lettuce, tomato, onion',1);
 
 # ORDERS TABLE
 INSERT INTO Orders(location_id,customer_id,employee_id,status,order_date,restrictions) VALUES (2,29,18,0,'2023-09-25','Dairy Free');
