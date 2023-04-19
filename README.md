@@ -57,9 +57,13 @@ The Mono-Food UI is fully developed through appsmith. Our frontend portion of ou
 
 # Technical Overview:
 
-All of our data is created and managed via a MySql database called resterauntdb. Our database was designed from the following ER diagram. 
+All of our data is created and managed via a MySql database called resterauntdb. Our database was designed with the following ER diagram. 
 
 
+![Final Global ERD](https://user-images.githubusercontent.com/77938678/233180416-5dbfa346-05c6-4bad-88a7-b390ab35be6f.jpg)
 
 
-Tests are developed and run via the ThunderClient library. To run or add tests...
+Here is the resulting Relational MySql Database shown in DataGrip.
+
+<img width="936" alt="Screen Shot 2023-04-19 at 3 33 47 PM" src="https://user-images.githubusercontent.com/77938678/233180969-1d5f4462-517a-4fa3-9b7e-d5876c5fd479.png">
+
