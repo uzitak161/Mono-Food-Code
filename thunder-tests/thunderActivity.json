@@ -476,5 +476,44 @@
         "value": "7"
       }
     ]
+  },
+  {
+    "_id": "740f77d4-083a-4387-87ed-73e243f649ba",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8001/m/items",
+    "url": "localhost:8001/m/items",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-19T21:10:42.664Z",
+    "modified": "2023-04-19T21:12:29.790Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "contains",
+        "value": "application/json"
+      },
+      {
+        "type": "json-query",
+        "custom": "json[0].item_id",
+        "action": "equal",
+        "value": "1"
+      }
+    ]
   }
 ]

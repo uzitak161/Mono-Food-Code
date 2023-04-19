@@ -1195,5 +1195,44 @@
         "value": "1"
       }
     ]
+  },
+  {
+    "_id": "d18e9424-3279-434a-8d21-b528f508a8a8",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "",
+    "name": "get all items",
+    "url": "localhost:8001/m/items",
+    "method": "GET",
+    "sortNum": 180000,
+    "created": "2023-04-19T21:12:41.841Z",
+    "modified": "2023-04-19T21:12:41.841Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "contains",
+        "value": "application/json"
+      },
+      {
+        "type": "json-query",
+        "custom": "json[0].item_id",
+        "action": "equal",
+        "value": "1"
+      }
+    ]
   }
 ]
