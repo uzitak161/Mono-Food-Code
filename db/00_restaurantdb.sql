@@ -198,11 +198,11 @@ INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration
 INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Sheryl','Cobon','508-319-6971','260-568-2831','373296345678987',288,'2022-12-22','72171 Village Green Place','Brockton','MA',2405);
 
 # LOCATIONS TABLE
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Boston','MA',2216,'617-973-7699','4:00','10:00');
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Cambridge','MA',2203,'617-731-9892','5:00','10:00');
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Holmdel','NJ',2216,'617-430-4335','4:00','10:30');
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('San Diego','CA',1129,'413-361-5631','5:00','11:00');
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Manhattan','NY',1105,'413-788-9759','1:00','11:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Boston','MA',02120,'617-973-7699','4:00','10:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Cambridge','MA',02114,'617-731-9892','5:00','10:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Holmdel','NJ',22816,'617-430-4335','4:00','10:30');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('San Diego','CA',91129,'413-361-5631','5:00','11:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Manhattan','NY',11625,'413-788-9759','1:00','11:00');
 
 # EMPLOYEES TABLE
 INSERT INTO Employees(manager,phone1,phone2,first_name,last_name) VALUES (NULL,'383-196-1701','714-210-9831','Sheree','Jeffryes');
