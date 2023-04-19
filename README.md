@@ -2,7 +2,7 @@
 
 ## Description:
 
-Mono-Food is a resteraunt management application, for chain resteraunts that have multiple locations. The goal of Mono-Food is to create an application that tracks various activities in a restaurant. By using this application, restaurant managers will be able to monitor customers’ previous orders, track employee shifts and salaries, and oversee the restaurant’s overall progress. More specifically, this application will record the meals ordered by each customer, which employee served/helped them, and how each menu item is performing. This application will provide restaurants with an easy and efficient way to streamline their operations and boost their profitability. This currently supports the following functionalities.
+Mono-Food is a restaurant management application, for chain restaurants that have multiple locations. The goal of Mono-Food is to create an application that tracks various activities in a restaurant. By using this application, restaurant managers will be able to monitor customers’ previous orders, track employee shifts and salaries, and oversee the restaurant’s overall progress. More specifically, this application will record the meals ordered by each customer, which employee served/helped them, and how each menu item is performing. This application will provide restaurants with an easy and efficient way to streamline their operations and boost their profitability. This currently supports the following functionalities.
 
 ### For Customers:
 
