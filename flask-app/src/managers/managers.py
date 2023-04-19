@@ -217,24 +217,6 @@ def assign_job():
 
     return "Employee {employee} Employed at Location: {location}".format(employee = employee_id, location = location_id)
 
-@managers.route('/employees', methods=['GET'])
-def get_employees():
-    query = """
-    select first_name, last_name from Employees
-    """
-
-    cursor = db.get_db().cursor()
-    cursor.execute(query)
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return the_response
-
 
 @managers.route('/customers', methods=['GET'])
 def get_customers():
@@ -354,8 +336,6 @@ def update_menu_item(itemID):
     db.get_db().commit()
 
     return make_response(jsonify({'message': 'Item updated'}), 200)
-<<<<<<< HEAD
-=======
 
 @managers.route('/items/<string:itemID>/orders', methods=['GET'])
 def num_orders_for_item(itemID):
@@ -376,32 +356,3 @@ def num_orders_for_item(itemID):
     the_response.mimetype = 'application/json'
     return the_response
 
-
-@managers.route('/schedule', methods=['PUT'])
-def update_schedule():
-    data = request.get_json()
-
-    if not data or 'start_time' not in data or 'end_time' not in data \
-        or 'location_id' not in data or 'employee_id' not in data:
-        return make_response(jsonify({'error': 'must include employee, location, and times'}), 400)
-    
-    start_time = data['start_time']
-    end_time = data['end_time']
-    locationID = data['location_id']
-    employeeID = data['employee_id']
-
-    query = """
-    INSERT INTO Shifts (employee_id, shift_start, shift_end, location_id)
-    VALUES ({employeeId}, '{startTime}', '{endTime}', {locID});
-    """.format(employeeId = employeeID, startTime = start_time, endTime = end_time, locID = locationID)
-    deletion_query = """
-    DELETE FROM Shifts where
-                       employee_id = {employeeId} and location_id = {locID} and shift_start > '{startTime}' and shift_end < '{endTime}';
-    """.format(employeeId = employeeID, startTime = start_time, endTime = end_time, locID = locationID)
-
-    cursor = db.get_db().cursor()
-    cursor.execute(deletion_query)
-    db.get_db().commit()
-
-    return "Added Shift for employee {employee} from {start} to {finish}".format(employee = employeeID, start = start_time, finish = end_time)
->>>>>>> a0018c6578095b357b246a0c8afeb14d22e9d0e8
