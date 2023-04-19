@@ -177,7 +177,7 @@ def get_employments():
     select Employees.employee_id as 'Employee ID', first_name as 'First Name', last_name as 'Last Name', L.location_id as 'Location ID', hire_date as 'Hire Date',
     fire_date as 'Fire Date', wage, manager, phone1, phone2, city, state, zip_code from Employees
     LEFT OUTER join Employments E on Employees.employee_id = E.employee_id
-    join Locations L on E.location_id = L.location_id;
+    LEFT OUTER join Locations L on E.location_id = L.location_id;
     """
 
     cursor = db.get_db().cursor()
