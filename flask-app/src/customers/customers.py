@@ -44,6 +44,7 @@ def signup():
 def get_profile(customerID):
     query = f'''
     select customer_id, first_name, last_name, phone1, phone2,\
+     card_num, cvv, expiration_date,\
      street, city, state, zip_code from Customers
     where customer_id = {customerID}
     '''
@@ -72,9 +73,9 @@ def update_profile(customerID):
         phone2 = data['phone2']
     except:
         phone2 = None
-    card = data['card']
+    card = data['card_num']
     cvv = data['cvv']
-    expiration = data['expiration']
+    expiration = data['expiration_date']
     street = data['street']
     city = data['city']
     state = data['state']
