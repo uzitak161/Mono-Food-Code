@@ -52,5 +52,12 @@ The Mono-Food UI is fully developed through appsmith. Our frontend portion of ou
 
 1. Once all of your docker containers are running and are done initializing, visit localhost:8080 to visit the appsmith page. 
 2. Choose the Mono-Food project (must have access to Appsmith repo from owner)
-3. View/Edit/Deploy the UI as you see fit
+3. View/Edit/Deploy the UI as you see fit (see the Appsmith tutoorial for guidance )
+
+
+# Technical Overview:
+
+All of our data is created and managed via a MySql database called resterauntdb. Our database was designed from the following ER diagram. 
+
+
 
