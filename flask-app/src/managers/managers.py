@@ -350,13 +350,12 @@ def update_menu_item(itemID):
 
     return make_response(jsonify({'message': 'Item updated'}), 200)
 
-@managers.route('/items/<string:itemID>/orders', methods=['GET'])
-def num_orders_for_item(itemID):
+@managers.route('/items/orders', methods=['GET'])
+def num_orders_for_item():
     query = """
-    SELECT SUM(item_quantity) FROM Orders JOIN OrderItems ON Orders.order_id = OrderItems.order_id
-    WHERE item_id = {ID}
+    SELECT OrderItems.item_id, item_name, SUM(item_quantity) AS quantity FROM Orders JOIN OrderItems ON Orders.order_id = OrderItems.order_id JOIN Items ON OrderItems.item_id = Items.item_id
+    GROUP BY OrderItems.item_id
     """
-    query = query.format(ID=itemID)
     cursor = db.get_db().cursor()
     cursor.execute(query)
     row_headers = [x[0] for x in cursor.description]

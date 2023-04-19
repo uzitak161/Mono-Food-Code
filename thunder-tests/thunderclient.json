@@ -773,5 +773,320 @@
         "value": ""
       }
     ]
+  },
+  {
+    "_id": "316f9110-3c45-4375-b5cf-93c089b5483b",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "",
+    "name": "num orders by item",
+    "url": "localhost:8001/m/items/orders",
+    "method": "GET",
+    "sortNum": 120000,
+    "created": "2023-04-19T17:44:33.736Z",
+    "modified": "2023-04-19T17:44:33.736Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "contains",
+        "value": "application/json"
+      },
+      {
+        "type": "json-query",
+        "custom": "json[0].quantity",
+        "action": "equal",
+        "value": "7"
+      }
+    ]
+  },
+  {
+    "_id": "3636afd7-bf36-40fd-b0ba-4d5dc71fc221",
+    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
+    "containerId": "",
+    "name": "update customer details",
+    "url": "localhost:8001/c/1",
+    "method": "PUT",
+    "sortNum": 140000,
+    "created": "2023-04-19T17:44:49.339Z",
+    "modified": "2023-04-19T17:44:49.339Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"city\": \"Worcester\",\n    \"customer_id\": 1,\n    \"first_name\": \"Merrill\",\n    \"last_name\": \"Scranny\",\n    \"phone1\": \"508-881-9511\",\n    \"phone2\": \"302-856-0629\",\n    \"state\": \"MA\",\n    \"street\": \"085 Carpenter Plaza\",\n    \"zip_code\": 16543,\n    \"card\": 374288419978480,\n    \"cvv\": 213,\n    \"expiration\": \"2023-01-23\"\n  }",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      }
+    ]
+  },
+  {
+    "_id": "d04f5aa7-9389-4b38-8744-ff016900fe77",
+    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
+    "containerId": "",
+    "name": "get customer details",
+    "url": "localhost:8001/c/1",
+    "method": "GET",
+    "sortNum": 150000,
+    "created": "2023-04-19T17:45:33.425Z",
+    "modified": "2023-04-19T17:45:33.425Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "contains",
+        "value": "application/json"
+      },
+      {
+        "type": "json-query",
+        "custom": "json[0].customer_id",
+        "action": "equal",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "_id": "3b2854ef-ef3d-4f8f-b741-90ae48421394",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "",
+    "name": "update menu item",
+    "url": "localhost:8001/m/items/1",
+    "method": "PUT",
+    "sortNum": 130000,
+    "created": "2023-04-19T17:45:44.590Z",
+    "modified": "2023-04-19T17:45:44.590Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"item_name\": \"Water Bottle\",\n  \"item_price\": 1.99,\n  \"ingredients\": \"Spring Water\",\n  \"availability\": true\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "contains",
+        "value": "application/json"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.message",
+        "action": "equal",
+        "value": "Item updated"
+      }
+    ]
+  },
+  {
+    "_id": "1ff1f1b6-9614-4911-b9ff-b10a617e4774",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "",
+    "name": "add menu item",
+    "url": "localhost:8001/m/items",
+    "method": "POST",
+    "sortNum": 140000,
+    "created": "2023-04-19T17:46:31.383Z",
+    "modified": "2023-04-19T17:46:31.383Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"item_name\": \"Water Bottle\",\n  \"item_price\": 1.99,\n  \"ingredients\": \"Spring Water\",\n  \"availability\": true\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "201"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "contains",
+        "value": "application/json"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.message",
+        "action": "equal",
+        "value": "Item added"
+      }
+    ]
+  },
+  {
+    "_id": "05c3caf1-173c-4cc4-a576-6372e2f51617",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "",
+    "name": "orders by employee",
+    "url": "localhost:8001/m/orders/employee/1",
+    "method": "GET",
+    "sortNum": 150000,
+    "created": "2023-04-19T17:46:46.032Z",
+    "modified": "2023-04-19T17:46:46.032Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "contains",
+        "value": "application/json"
+      },
+      {
+        "type": "json-query",
+        "custom": "json[0].order_id",
+        "action": "equal",
+        "value": "6"
+      }
+    ]
+  },
+  {
+    "_id": "14494329-01f7-402c-aebc-b4740e42f9fb",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "",
+    "name": "orders by location",
+    "url": "localhost:8001/m/orders/location/1",
+    "method": "GET",
+    "sortNum": 160000,
+    "created": "2023-04-19T17:46:58.805Z",
+    "modified": "2023-04-19T17:46:58.805Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "contains",
+        "value": "application/json"
+      },
+      {
+        "type": "json-query",
+        "custom": "json[0].order_id",
+        "action": "equal",
+        "value": "2"
+      }
+    ]
+  },
+  {
+    "_id": "b287d6b0-3b0c-449f-85e8-d3569d3f4c15",
+    "colId": "f55ac8d7-4239-4d5b-8413-974e738e043c",
+    "containerId": "",
+    "name": "get customers",
+    "url": "localhost:8001/m/customers",
+    "method": "GET",
+    "sortNum": 170000,
+    "created": "2023-04-19T17:47:11.396Z",
+    "modified": "2023-04-19T17:47:11.396Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-time",
+        "custom": "",
+        "action": "<",
+        "value": "500"
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "contains",
+        "value": "application/json"
+      },
+      {
+        "type": "json-query",
+        "custom": "json[0].customer_id",
+        "action": "equal",
+        "value": "1"
+      }
+    ]
   }
 ]

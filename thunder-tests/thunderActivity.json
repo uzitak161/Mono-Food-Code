@@ -442,12 +442,12 @@
     "_id": "10411229-8921-4d36-9ae5-dfb041e7160a",
     "colId": "history",
     "containerId": "",
-    "name": "localhost:8001/m/items/1/orders",
-    "url": "localhost:8001/m/items/1/orders",
+    "name": "orders by item",
+    "url": "localhost:8001/m/items/orders",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-04-19T17:20:26.393Z",
-    "modified": "2023-04-19T17:21:26.956Z",
+    "modified": "2023-04-19T17:44:11.032Z",
     "headers": [],
     "params": [],
     "tests": [
@@ -471,7 +471,7 @@
       },
       {
         "type": "json-query",
-        "custom": "json[0]['SUM(item_quantity)']",
+        "custom": "json[0].quantity",
         "action": "equal",
         "value": "7"
       }
