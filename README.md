@@ -50,9 +50,9 @@ All the tests are meant to be run in order as they appear in the thunder client 
 
 The Mono-Food UI is fully developed through appsmith. Our frontend portion of our application can be found in our appsmith repository https://github.com/uzitak161/Mono-Food 
 
-1. Once all of your docker containers are running and are done initializing, visit localhost:8080 to visit the appsmith page. 
+1. Once all of your docker containers are running and are done initializing, visit localhost:8080 to visit the Appsmith page. 
 2. Choose the Mono-Food project (must have access to Appsmith repo from owner)
-3. View/Edit/Deploy the UI as you see fit (see the Appsmith tutoorial for guidance )
+3. View/Edit/Deploy the UI as you see fit (see the Appsmith tutoorial for guidance)
 
 
 # Technical Overview:
@@ -77,4 +77,4 @@ Our API is divided into 2 blueprints, each managing interactions of a different 
 
 ## Link to Video
 
-*insert here*
+Insert Here.
