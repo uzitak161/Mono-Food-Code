@@ -44,6 +44,7 @@ def signup():
 def get_profile(customerID):
     query = f'''
     select customer_id, first_name, last_name, phone1, phone2,\
+     card_num, cvv, expiration_date,\
      street, city, state, zip_code from Customers
     where customer_id = {customerID}
     '''
