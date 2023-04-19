@@ -74,3 +74,7 @@ Here is the resulting Relational MySql Database shown in DataGrip.
 ## API Design
 
 Our API is divided into 2 blueprints, each managing interactions of a different user type. The Customers' routes contain all calls necessary to display, update and delete data that is within their privilege. Managers essentially have additional capabilities and permissions. We can ensure that no user that is logged in as a customer has access to routes within the manager blueprint, and we plan to do the same with the employee's blueprint once we begin development. All of our routes is developed using Python and Flask.
+
+## Link to Video
+
+*insert here*
