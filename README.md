@@ -61,3 +61,5 @@ All of our data is created and managed via a MySql database called resterauntdb.
 
 
 
+
+Tests are developed and run via the ThunderClient library. To run or add tests...
