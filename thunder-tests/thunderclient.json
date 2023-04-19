@@ -617,21 +617,21 @@
     "method": "GET",
     "sortNum": 80000,
     "created": "2023-04-18T01:15:03.289Z",
-    "modified": "2023-04-18T01:16:41.345Z",
+    "modified": "2023-04-19T21:28:50.975Z",
     "headers": [],
     "params": [],
     "tests": [
-      {
-        "type": "json-query",
-        "custom": "json[1]['status']",
-        "action": "equal",
-        "value": "0"
-      },
       {
         "type": "res-body",
         "custom": "",
         "action": "isjson",
         "value": ""
+      },
+      {
+        "type": "Content-Length",
+        "custom": "",
+        "action": "equal",
+        "value": "498"
       }
     ]
   },
