@@ -14,10 +14,7 @@ def signup():
     first = data['first']
     last = data['last']
     phone1 = data['phone1']
-    try:
-        phone2 = data['phone2']
-    except:
-        phone2 = ''
+    phone2 = data.get('phone2', 'NULL')
     card = data['card']
     cvv = data['cvv']
     expiration = data['expiration']
@@ -29,15 +26,18 @@ def signup():
     query = f'''
     insert into Customers
     (first_name, last_name, phone1, phone2, card_num, cvv, expiration_date, street, city, state, zip_code)
-    values ('{first}', '{last}', '{phone1}', '{phone2}', '{card}', '{cvv}', '{expiration}', '{street}', '{city}', '{state}', '{zip_code}')
+    values ('{first}', '{last}', '{phone1}', {phone2}, '{card}', '{cvv}', '{expiration}', '{street}', '{city}', '{state}', '{zip_code}')
     '''
     current_app.logger.info(query)
 
     cursor = db.get_db().cursor()
     cursor.execute(query)
     db.get_db().commit()
+    customer_id = cursor.lastrowid
 
-    return f'Successfully registered customer {first} {last}!'
+    response = make_response(f'Successfully registered customer {first} {last}! Customer ID: {customer_id}')
+    response.status_code = 200
+    return response
 
 # place an order
 @customers.route('/orders/<int:customerID>', methods=['POST'])
