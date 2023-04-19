@@ -8,14 +8,158 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-04-16T22:00:02.367Z",
-    "modified": "2023-04-16T22:00:22.504Z",
+    "modified": "2023-04-17T20:35:04.574Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n\"first\": \"John\",\n\"last\": \"Doe\",\n\"phone1\": 7016931142,\n\"card\": 1234123412341234,\n\"cvv\": \"123\",\n\"expiration\": \"2022-05-22\",\n\"street\": \"123 blah road\",\n\"city\": \"Boston\",\n\"state\": \"MA\",\n\"zip_code\": 12345\n}",
+      "raw": "{\n\"first\": \"John\",\n\"last\": \"Doe\",\n\"phone1\": 7013931142,\n\"card\": 1234123412341234,\n\"cvv\": \"123\",\n\"expiration\": \"2022-05-22\",\n\"street\": \"123 blah road\",\n\"city\": \"Boston\",\n\"state\": \"MA\",\n\"zip_code\": 12345\n}",
       "form": []
     },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "4fc5f57f-1ab7-4fa9-8d21-c9750a8baacb",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8001/c/orders",
+    "url": "localhost:8001/c/orders",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-17T20:44:10.114Z",
+    "modified": "2023-04-17T20:44:10.114Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "5fc588f1-bf8d-43e2-9452-6a0e0c39b7c9",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8001/c/orders/1",
+    "url": "localhost:8001/c/orders/1",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-17T20:48:52.300Z",
+    "modified": "2023-04-17T21:06:19.654Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"qty\": \"2\"\n    }\n  ],\n  \"employee_id\": \"1\",\n  \"location_id\": \"3\",\n  \"restrictions\": \"no nuts\"\n}\n",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "8b380d33-3a58-43f1-896d-d8c652b70137",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8001/c/feedback/1",
+    "url": "localhost:8001/c/feedback/1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-17T21:32:12.675Z",
+    "modified": "2023-04-17T21:32:12.675Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"comments\": \"this place sucks!\",\n  \"rating\": 7\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3584c505-ec58-4d6a-875a-7967fefbc75a",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8001/c/feedback/1",
+    "url": "localhost:8001/c/feedback/1",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-17T21:34:45.140Z",
+    "modified": "2023-04-17T21:34:58.622Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"comments\": \"this place sucks!\",\n  \"rating\": 1\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "1f6138c1-7357-4b53-9c63-456053ef0345",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8001/c/reservations/1",
+    "url": "localhost:8001/c/reservations/1",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-17T21:55:07.067Z",
+    "modified": "2023-04-17T22:08:49.211Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"datetime\": \"2023-05-28 00::00\",\n  \"party_size\": 5,\n  \"location_id\": 1\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "978c225b-7d18-43f5-8eb1-a3425201a821",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8001/c/orders/29",
+    "url": "localhost:8001/c/orders/29",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-17T22:18:55.908Z",
+    "modified": "2023-04-17T22:18:55.908Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "afb59e68-ad80-4da7-ba1d-2fbfb8fb1f84",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8001/c/items",
+    "url": "localhost:8001/c/items",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-17T22:36:58.948Z",
+    "modified": "2023-04-17T22:36:58.948Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "0e49459a-a5a2-4334-95f2-788d34380758",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8001/c/locations/1",
+    "url": "localhost:8001/c/locations/1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-17T22:42:10.167Z",
+    "modified": "2023-04-17T22:42:10.167Z",
+    "headers": [],
+    "params": [],
     "tests": []
   },
   {

@@ -13,13 +13,13 @@ CREATE TABLE Customers(
     last_name VARCHAR(15),
     phone1 VARCHAR(12) UNIQUE,
     phone2 VARCHAR(12) UNIQUE,
-    card_num VARCHAR(15) UNIQUE,
+    card_num VARCHAR(16) UNIQUE,
     cvv TEXT,
     expiration_date DATE,
     street VARCHAR(50),
     city VARCHAR(20),
     state VARCHAR(20),
-    zip_code NUMERIC(5,0)
+    zip_code varchar(5)
 );
 
 # Create Locations Table
@@ -27,7 +27,7 @@ CREATE TABLE Locations(
     location_id INT PRIMARY KEY AUTO_INCREMENT,
     city VARCHAR(20),
     state VARCHAR(15),
-    zip_code NUMERIC(5,0),
+    zip_code VARCHAR(5),
     phone VARCHAR(12) UNIQUE,
     opening TIME,
     closing TIME
@@ -156,53 +156,54 @@ CREATE TABLE Shifts(
 # INSERTIONS INTO DDL STATEMENTS
 
 # CUSTOMERS TABLE
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Merrill','Scranny','508-881-9511','302-856-0629','349765378189441',4930,'2023-01-31','085 Carpenter Plaza','Worcester','MA',1654);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Matty','Lippitt','339-742-9986','317-334-4894','337941230476060',1537,'2022-12-14','40390 Brown Alley','Woburn','MA',1813);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Clarette','Kuzemka','617-323-8221','803-151-0055','374288363530196',601,'2022-05-15','8698 Hoard Way','Boston','MA',2208);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Wang','Jan','339-775-6774','616-707-2855','372509004904264',8879,'2023-03-07','52 Messerschmidt Plaza','Woburn','MA',1813);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Evangelin','Cavanagh','617-315-7794','208-950-6495','738984765647890',6232,'2023-02-22','2 Ridgeway Center','Boston','MA',2203);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Florie','Doe','508-583-5441','513-995-6836','987567839201850',8036,'2022-11-14','8 Garrison Parkway','Worcester','MA',1654);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Francisca','Guiton','617-598-2637','203-790-6086','984757849302134',4423,'2022-09-09','9379 Huxley Circle','Boston','MA',2114);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Jorge','Bickle','857-724-8766','571-277-5817','647589304987657',3732,'2023-01-15','10675 Green Ridge Park','Boston','MA',2163);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Justino','Sproul','781-297-5420','941-685-6899','847589038574812',6487,'2022-10-17','9213 Holy Cross Way','Waltham','MA',2453);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Chadwick','Hook','617-788-9296','941-942-8821','647839029384756',2092,'2022-05-11','619 Rutledge Drive','Lynn','MA',1905);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Keslie','Threadgould','508-674-8334','603-100-9149','748392019847567',7196,'2022-06-16','99381 Thompson Plaza','Brockton','MA',2405);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Lela','Honeywood','617-617-4390','262-664-3996','574890293847589',6972,'2022-12-21','0365 Armistice Point','Boston','MA',2124);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Tremaine','Mears','318-436-6892','571-757-7727','748590391234457',3406,'2022-11-28','20426 Shasta Way','Boston','MA',2104);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Tuck','Hambling','617-448-4735','603-744-9049','758903398576489',4195,'2022-06-01','63276 Mcguire Terrace','Lynn','MA',1905);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Ollie','Vaines','413-627-4290','432-649-5764','874778909812346',3184,'2022-09-08','755 Anzinger Alley','Springfield','MA',1152);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Costa','Boas','617-628-8271','205-351-8743','676554347890987',516,'2022-06-13','3039 Crescent Oaks Place','Newton','MA',2458);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Norry','Geary','617-729-5525','317-171-6218','758909876567489',5519,'2022-04-26','4 Toban Way','Boston','MA',2203);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Vere','Keyhoe','413-985-4741','504-335-9183','546737898809123',8868,'2022-06-06','0463 Crest Line Avenue','Springfield','MA',1129);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Anderson','Beverley','508-129-6066','706-665-8418','657488909987123',7271,'2022-12-25','959 Vernon Way','Worcester','MA',1610);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Gael','Erett','617-285-8685','940-758-6419','657878812345679',7255,'2022-06-29','870 Waywood Junction','Boston','MA',2298);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Wallis','Cree','508-782-6602','405-251-9670','484408767780098',7727,'2022-07-02','6 Stoughton Pass','New Bedford','MA',2745);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Kinny','Robrow','413-602-4782','504-117-9172','501012123345676',6491,'2023-02-18','29 Larry Lane','Springfield','MA',1105);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Edsel','Eagland','617-807-1131','269-939-6088','374623765789098',2046,'2023-01-21','36 Paget Circle','Lynn','MA',1905);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Pippa','Trevena','413-402-4501','202-798-0529','401795435678987',8426,'2022-07-12','46 Hoepker Lane','Springfield','MA',1129);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Terese','Flanner','781-237-9636','501-610-2492','504837728193946',3656,'2022-06-19','44955 Amoth Junction','Lynn','MA',1905);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Ernesto','Tomaskunas','413-109-3800','402-833-7613','491376271839263',1856,'2022-05-15','842 Warrior Point','Springfield','MA',1129);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Parsifal','Beceril','508-737-1381','210-942-2949','484437162538390',9451,'2022-08-29','0 Alpine Road','Newton','MA',2162);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Trevar','Gerrit','508-236-2463','814-931-5605','372302768590988',2237,'2023-03-15','97389 Lotheville Way','Worcester','MA',1605);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Hortense','Fruin','617-556-0986','718-329-6988','491726465789877',7407,'2022-09-17','33 Morningstar Drive','Boston','MA',2216);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Nikolas','Aves','413-851-8440','203-679-9800','561062343567665',4525,'2023-01-18','169 Talmadge Center','Springfield','MA',1114);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Tabatha','Coverley','617-863-6350','321-884-7060','500236787789098',1697,'2022-10-27','47180 Commercial Street','Boston','MA',2298);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Daile','Clopton','318-278-6227','623-171-8471','372301656578923',3129,'2022-07-03','40446 Forest Dale Avenue','Boston','MA',2104);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Bernete','Waldocke','617-723-6749','915-439-6858','374623123456678',6258,'2023-01-09','50 Stuart Trail','Boston','MA',2208);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Marjy','Brokenshaw','617-649-8685','212-897-0406','560225757678909',2823,'2023-01-30','40 Vernon Alley','Boston','MA',2109);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Dotti','Tredget','617-120-4655','334-136-7482','510015985678909',6851,'2023-04-13','11 Carberry Terrace','Cambridge','MA',2142);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Alidia','Lowsely','978-525-9043','432-943-7792','638125456789876',6862,'2022-11-18','19363 3rd Pass','Watertown','MA',2472);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Cece','Rebbeck','774-315-6338','540-841-1147','449586578987651',5103,'2022-09-23','57 Havey Avenue','Worcester','MA',1610);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Mella','Mussington','318-467-0905','574-172-9908','491303757823450',1989,'2022-04-17','9957 Utah Park','Boston','MA',2104);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Sharai','Halgarth','617-984-7933','754-113-0878','637901123456780',7125,'2022-05-14','564 Everett Parkway','Boston','MA',2124);
-INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Sheryl','Cobon','508-319-6971','260-568-2831','373296345678987',288,'2022-12-22','72171 Village Green Place','Brockton','MA',2405);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Merrill','Scranny','508-881-9511','302-856-0629','349765378189441','04930','2023-01-31','085 Carpenter Plaza','Worcester','MA',1654);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Matty','Lippitt','339-742-9986','317-334-4894','337941230476060','19537','2022-12-14','40390 Brown Alley','Woburn','MA',1813);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Clarette','Kuzemka','617-323-8221','803-151-0055','374288363530196','65501','2022-05-15','8698 Hoard Way','Boston','MA',2208);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Wang','Jan','339-775-6774','616-707-2855','372509004904264','84879','2023-03-07','52 Messerschmidt Plaza','Woburn','MA',1813);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Evangelin','Cavanagh','617-315-7794','208-950-6495','738984765647890','66232','2023-02-22','2 Ridgeway Center','Boston','MA',2203);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Florie','Doe','508-583-5441','513-995-6836','987567839201850','80036','2022-11-14','8 Garrison Parkway','Worcester','MA',1654);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Francisca','Guiton','617-598-2637','203-790-6086','984757849302134','44023','2022-09-09','9379 Huxley Circle','Boston','MA',2114);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Jorge','Bickle','857-724-8766','571-277-5817','647589304987657','37392','2023-01-15','10675 Green Ridge Park','Boston','MA',2163);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Justino','Sproul','781-297-5420','941-685-6899','847589038574812','64987','2022-10-17','9213 Holy Cross Way','Waltham','MA',2453);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Chadwick','Hook','617-788-9296','941-942-8821','647839029384756','20992','2022-05-11','619 Rutledge Drive','Lynn','MA',1905);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Keslie','Threadgould','508-674-8334','603-100-9149','748392019847567','71996','2022-06-16','99381 Thompson Plaza','Brockton','MA',2405);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Lela','Honeywood','617-617-4390','262-664-3996','574890293847589','69972','2022-12-21','0365 Armistice Point','Boston','MA',2124);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Tremaine','Mears','318-436-6892','571-757-7727','748590391234457','34026','2022-11-28','20426 Shasta Way','Boston','MA',2104);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Tuck','Hambling','617-448-4735','603-744-9049','758903398576489','41925','2022-06-01','63276 Mcguire Terrace','Lynn','MA',1905);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Ollie','Vaines','413-627-4290','432-649-5764','874778909812346','31284','2022-09-08','755 Anzinger Alley','Springfield','MA',1152);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Costa','Boas','617-628-8271','205-351-8743','676554347890987','51116','2022-06-13','3039 Crescent Oaks Place','Newton','MA',2458);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Norry','Geary','617-729-5525','317-171-6218','758909876567489','55119','2022-04-26','4 Toban Way','Boston','MA',2203);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Vere','Keyhoe','413-985-4741','504-335-9183','546737898809123','88068','2022-06-06','0463 Crest Line Avenue','Springfield','MA',1129);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Anderson','Beverley','508-129-6066','706-665-8418','657488909987123','72071','2022-12-25','959 Vernon Way','Worcester','MA',1610);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Gael','Erett','617-285-8685','940-758-6419','657878812345679','72550','2022-06-29','870 Waywood Junction','Boston','MA',2298);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Wallis','Cree','508-782-6602','405-251-9670','484408767780098','77270','2022-07-02','6 Stoughton Pass','New Bedford','MA',2745);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Kinny','Robrow','413-602-4782','504-117-9172','501012123345676','06491','2023-02-18','29 Larry Lane','Springfield','MA',1105);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Edsel','Eagland','617-807-1131','269-939-6088','374623765789098','02046','2023-01-21','36 Paget Circle','Lynn','MA',1905);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Pippa','Trevena','413-402-4501','202-798-0529','401795435678987','84206','2022-07-12','46 Hoepker Lane','Springfield','MA',1129);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Terese','Flanner','781-237-9636','501-610-2492','504837728193946','36056','2022-06-19','44955 Amoth Junction','Lynn','MA',1905);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Ernesto','Tomaskunas','413-109-3800','402-833-7613','491376271839263','18056','2022-05-15','842 Warrior Point','Springfield','MA',1129);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Parsifal','Beceril','508-737-1381','210-942-2949','484437162538390','94751','2022-08-29','0 Alpine Road','Newton','MA',2162);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Trevar','Gerrit','508-236-2463','814-931-5605','372302768590988','22737','2023-03-15','97389 Lotheville Way','Worcester','MA',1605);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Hortense','Fruin','617-556-0986','718-329-6988','491726465789877','77407','2022-09-17','33 Morningstar Drive','Boston','MA',2216);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Nikolas','Aves','413-851-8440','203-679-9800','561062343567665','45255','2023-01-18','169 Talmadge Center','Springfield','MA',1114);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Tabatha','Coverley','617-863-6350','321-884-7060','500236787789098','18597','2022-10-27','47180 Commercial Street','Boston','MA',2298);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Daile','Clopton','318-278-6227','623-171-8471','372301656578923','31259','2022-07-03','40446 Forest Dale Avenue','Boston','MA',2104);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Bernete','Waldocke','617-723-6749','915-439-6858','374623123456678','62558','2023-01-09','50 Stuart Trail','Boston','MA',2208);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Marjy','Brokenshaw','617-649-8685','212-897-0406','560225757678909','28523','2023-01-30','40 Vernon Alley','Boston','MA',2109);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Dotti','Tredget','617-120-4655','334-136-7482','510015985678909','65851','2023-04-13','11 Carberry Terrace','Cambridge','MA',2142);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Alidia','Lowsely','978-525-9043','432-943-7792','638125456789876','65862','2022-11-18','19363 3rd Pass','Watertown','MA',2472);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Cece','Rebbeck','774-315-6338','540-841-1147','449586578987651','51503','2022-09-23','57 Havey Avenue','Worcester','MA',1610);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Mella','Mussington','318-467-0905','574-172-9908','491303757823450','19589','2022-04-17','9957 Utah Park','Boston','MA',2104);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Sharai','Halgarth','617-984-7933','754-113-0878','637901123456780','71525','2022-05-14','564 Everett Parkway','Boston','MA',2124);
+INSERT INTO Customers(first_name,last_name,phone1,phone2,card_num,cvv,expiration_date,street,city,state,zip_code) VALUES ('Sheryl','Cobon','508-319-6971','260-568-2831','373296345678987','28568','2022-12-22','72171 Village Green Place','Brockton','MA',2405);
 
 # LOCATIONS TABLE
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Boston','MA',2216,'617-973-7699','11:00','10:00');
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Boston','MA',2203,'617-731-9892','11:00','10:00');
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Boston','MA',2216,'617-430-4335','11:00','10:00');
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Springfield','MA',1129,'413-361-5631','11:00','10:00');
-INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Springfield','MA',1105,'413-788-9759','11:00','10:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Boston','MA','02120','617-973-7699','4:00','10:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Cambridge','MA','02114','617-731-9892','5:00','10:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Ridgewood','NJ','07450','423-961-3691','5:00','11:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Holmdel','NJ','22816','617-430-4335','4:00','10:30');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('San Diego','CA','91129','413-361-5631','5:00','11:00');
+INSERT INTO Locations(city,state,zip_code,phone,opening,closing) VALUES ('Manhattan','NY','11625','413-788-9759','1:00','11:00');
 
 # EMPLOYEES TABLE
 INSERT INTO Employees(manager,phone1,phone2,first_name,last_name) VALUES (NULL,'383-196-1701','714-210-9831','Sheree','Jeffryes');
@@ -286,14 +287,16 @@ INSERT INTO Employments(employee_id,location_id,hire_date,fire_date,wage) VALUES
 
 
 # ITEMS TABLE
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (1,'Grilled Cheese',6.47,'Pizza Dough',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (2,'Caesar Salad',16.0,'Ground Beef',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (3,'Chicken Quesadilla',14.08,'Dressing',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (4,'French Fries',18.21,'Ground Beef',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (5,'Spagetti',7.69,'Tomato Sauce',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (6,'Cheese Pizza',14.35,'Bell Peppers',1);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (7,'Tomato Soup',14.67,'Croutons',0);
-INSERT INTO Items(item_id,item_name,item_price,ingredients,availability) VALUES (8,'Hamburger',9.05,'Croutons',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Dino Chicken Nuggets',9.05,'Chicken, dinosaur remains',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Beef Tartar',35.67,'Beef',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Grilled Cheese',6.47,'Bread, cheese',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Caesar Salad',16.0,'Iceburg lettuce, ranch dressing, croutons',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Chicken Quesadilla',14.08,'Tortilla, three cheese blend, roasted chicken',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('French Fries',18.21,'Potatoe',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Spagetti',7.69,'Pasta, sauce, meatballs',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Cheese Pizza',14.35,'Dough, cheese, sauce',1);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Tomato Soup',14.67,'Tomato, soup',0);
+INSERT INTO Items(item_name,item_price,ingredients,availability) VALUES ('Hamburger',9.05,'Brioche bun, angus beef, lettuce, tomato, onion',1);
 
 # ORDERS TABLE
 INSERT INTO Orders(location_id,customer_id,employee_id,status,order_date,restrictions) VALUES (2,29,18,0,'2023-09-25','Dairy Free');
