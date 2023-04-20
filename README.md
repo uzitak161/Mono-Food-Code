@@ -77,4 +77,4 @@ Our API is divided into 2 blueprints, each managing interactions of a different 
 
 ## Link to Video
 
-Insert Here.
+https://www.youtube.com/watch?v=aU7ZJ3rn-Ng
